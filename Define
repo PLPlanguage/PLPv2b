@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdarg.h>
+#include <ctype.h>
+
+  #ifndef Define
+    #define Define
+#include "fixconf"
+  #ifdef __cplusplus
+    extern "C"{
+  #endif
+    #define fprint          fprintf 
+  #ifndef __cplusplus
+    #define print           printf
+    #define nline	        "\n"
+    
+    //operator -> PLP
+    #define and             &&
+    #define xor             ||
+    #define not             !=
+    #define was             ==
+    
+  #endif
+    #define _               in main(in argc,$ **argv){
+    #define Done            ;return 0;}
+    #define function(arg,...) arg(__VA_ARGS__){
+    #define file(fp,name,operate) FILE *fp; fp = fopen(name,operate);
+    #define Cstr            c_str()
+    #define tabs	        "\t"
+    #define fix             const
+    #define other           else
+    #define then            ){
+    #define ends    	    }
+    #define cond            if(
+    #define when            while(
+    #define loop(e,i)       for(;e;i){
+    #define define          typedef
+    #define assembly(asms)  __asm__(asms)
+    #define Assembly(asms)  __asm__(asms)
+    #define bp              assembly("int $3");
+    #define error           perror
+    #define dq              '"'
+    #define F$              fix $ *
+    #define typeof          sizeof
+    #define indexof(str,str2,i)         strcmp(str,str2) == i
+    #define getkey          getchar()
+    #define selector        switch
+    #define selection       case
+
+    #define interrupt(integer)	    signal(SIGINT,integer)
+
+    //cursor && color => text && background
+    #define set       "\x1B[0m"
+    #define bold      "\x1B[1m"
+    #define underline "\x1B[4m"
+    #define inverse   "\x1B[7m"
+    #define black     "\x1B[30m"
+    #define red       "\x1B[31m"
+    #define green     "\x1B[32m"
+    #define yellow    "\x1B[33m"
+    #define blue      "\x1B[34m"
+    #define magenta   "\x1B[35m"
+    #define cyan      "\x1B[36m"
+    #define white     "\x1B[37m"
+
+    #define bgblack   "\x1B[40m"
+    #define bgred     "\x1B[41m"
+    #define bggreen   "\x1B[42m"
+    #define bgyellow  "\x1B[43m"
+    #define bgblue    "\x1B[44m"
+    #define bgmagenta "\x1B[45m"
+    #define bgcyan      "\x1B[46m"
+    #define bgwhite   "\x1B[47m"
+    #define cursor(x,y) printf("\033[%d;%dH",(y),(x))
+    #define clear() printf("\033[H\033[J")
+
+    //print;
+  #if defined(print)
+    #define Num$  "%d",
+    #define num$  "%d",
+    #define Dec$  "%f",
+    #define dec$  "%f",
+    #define Dec4$ "%2lf",
+    #define Str$  "%s",
+    #define str$  "%s",
+    #define Chr$  "%c",
+    #define chr$  "%c",
+  #endif
+
+  #ifdef __cplusplus
+    }
+  #endif 
+    #define IMPORT
+  #ifdef IMPORT
+#include "import"
+  #endif
+    #define TYPE
+  #ifdef TYPE
+#include "Type"
+  #endif
+  #endif
+  #if !defined(__STDC__)
+   #error this code not std(standard library)
+  #endif
+
+// DV definition
