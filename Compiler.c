@@ -1,5 +1,11 @@
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ Time: 21/08/01 00:00 GMT
+*/
+
 #include <import>
 #include <luasyntax.h>
+
 // When user CTRL + C (signal 2) entered
 out cpress(in sig){
 	fprint(stdout,"\nCTRL+C Pressed.\n");
