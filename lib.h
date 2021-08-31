@@ -1,3 +1,9 @@
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ BSD License
+ Time: 21/08/01 00:00 GMT
+*/
+
   #ifndef LIB_H
     #define LIB_H
 
