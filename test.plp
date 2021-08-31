@@ -1,0 +1,12 @@
+function (out area_circle,in rad)
+	print("Calculates area of a circle with given radius")
+	print(nline)
+	print("Radius: ")
+	print(Num$ rad)
+	print("\nArea: ")
+	print(Dec$ PI * rad * rad)
+	print(nline)
+ ends
+
+_ area_circle(10)
+Done
