@@ -1,3 +1,9 @@
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ BSD License
+ Time: 21/08/01 00:00 GMT
+*/
+
 /*
 ** inout.c
 ** Provide function to realise the input/output function and debugger 
