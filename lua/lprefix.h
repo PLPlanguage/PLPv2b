@@ -1,3 +1,9 @@
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ BSD License
+ Time: 21/08/01 00:00 GMT
+*/
+
 /*
 ** $Id: lprefix.h $
 ** Definitions for Lua code that must come before any other header file
