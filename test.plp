@@ -1,3 +1,10 @@
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ BSD License
+ Time: 21/08/01 00:00 GMT
+*/
+//testing PLP language syntax
+
 function (out area_circle,in rad)
 	print("Calculates area of a circle with given radius")
 	print(nline)
