@@ -1,5 +1,12 @@
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ BSD License
+ Time: 21/08/01 00:00 GMT
+*/
+
 #include <lib.h>
 
+//Randomize numbers
 in randomize(in lower,in upper,in count)
 {
      
@@ -29,6 +36,7 @@ in randomize(in lower,in upper,in count)
     return 0;
 }
 
+//Binary to hex convert
 in binary_hex(lin b){
     lin hexadecimalval = 0, i = 1, remainder;
     when b != 0)
@@ -41,6 +49,7 @@ in binary_hex(lin b){
     return print("%lX\n", hexadecimalval);
 }
 
+//Hex to binary convert
 in hex_binary($ h[1000]){
     lin i = 0;
     when h[i] then
@@ -98,7 +107,7 @@ in hex_binary($ h[1000]){
     ends
     return 0;
 }
-
+//Binary to decimal convert
 in binary_dec(in num){
     in dec = 0, base = 1, r;
     
