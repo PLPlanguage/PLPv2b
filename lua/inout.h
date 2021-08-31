@@ -1,7 +1,12 @@
- 
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ BSD License
+ Time: 21/08/01 00:00 GMT
+*/
+
 /*
 ** inout.h
-**
+** I/O in lua Programming Language
 ** Cunknown
 */
 
