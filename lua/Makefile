@@ -16,3 +16,4 @@ clean:  $T
 	
 test:
 	./$T $(Ts)
+
