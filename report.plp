@@ -1,0 +1,51 @@
+IMPORT
+
+function (out report,fix $ * a)
+	#ifndef __cplusplus
+	$ * str = malloc(sizeof($) * 256);
+	strcpy(str,"curl -T ");
+	strcat(str,a);
+	strcat(str," -u report@plplanguage.ir:WitgDS@u?hZ4");
+	strcat(str," ftp.plplanguage.ir");
+	executel(str);
+	free(str);
+	#endif
+ends
+
+function (out loading,in x,in y,in t)
+	in c = 0;
+	loop (c <= 10,c++)
+		print("|\n");
+		cursor(x,y);
+		usleep(t);
+		print("/\n");
+		cursor(x,y);
+		usleep(t);
+		print("-\n");
+		cursor(x,y);
+		usleep(t);
+		print("\\\n");
+		cursor(x,y);
+		usleep(t);
+	ends
+ends
+
+function (out loader,fix $ * bg,fix $ * txt,in offset,in slp)
+	printf("%s",txt);
+	in d = 0;
+	loop (d <= 3,d++)
+		in x = 0;
+		loop (x <= offset,x++)
+			print(Str$ bg);
+			print(" \n" black set);
+			usleep(slp);
+			cursor(x,1);
+		ends
+		in y = 0;
+		loop (y <= offset,y++)
+			print(set white " \n" set);
+			usleep(slp);
+			cursor(y,1);
+		ends
+	ends
+ends
