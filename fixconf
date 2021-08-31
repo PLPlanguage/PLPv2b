@@ -1,0 +1,31 @@
+  #ifndef FIXCONF
+    #define FIXCONF
+  #ifdef __cplusplus
+#include <iostream>
+#include <string>
+#include <fstream>
+    #define space               using namespace
+space std;
+    #define print               cout << 
+    #define println             cout << endl << 
+    #define PRINTLN             cout << endl << 
+    #define sent                cin >>
+    #define nline		endl 
+typedef string              text;
+typedef string              TEXT;
+typedef ofstream            writefs;
+typedef ifstream            opens;
+  #endif
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <unistd.h>
+    #define Shell(ints,options) when (ints = getopt(argc,argv,options)) != -1)
+    #define getshell            optarg
+    #define shelloption         optopt
+
+  #if (defined(_WIN32) || defined(_WIN64))
+#include <stdio.h>
+    #define assembly            __asm{
+  #endif 
+  #endif
