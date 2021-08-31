@@ -1,4 +1,10 @@
-  #ifndef CMATH_H
+/* The Project Programming Language - PLP
+ The Second Release on PLP Language -> PLPv2b
+ BSD License
+ Time: 21/08/01 00:00 GMT
+*/
+
+ #ifndef CMATH_H
     #define CMATH_H
 
 #include "Type"
