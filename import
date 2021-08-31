@@ -1,0 +1,11 @@
+#include "Type"
+#include "Define"  
+#include "luasyntax.h"
+#include "lib.h"
+#include "cmath.h"
+#include "IO.h"
+#include "cs50.h"
+/*
+ * Import Defined Variable
+ * IDV
+*/
