@@ -37,7 +37,7 @@ in inout($ * a){
            	 other ungetc(cs,fp);
              cond fgets(c,256,fp) != NULL) fputs(c,fp2);
             	other break;
-    }
+    ends
     fclose(fp);
     fclose(fp2);
     return 0;
