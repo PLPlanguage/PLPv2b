@@ -14,7 +14,7 @@ in inout($ * a){
     	exit(0);
     ends
      $ c[256];
-    fputs("#include \"../.PLPv2b/import\"\n",fp2);
+    fputs("#include \"../PLPv2b/import\"\n",fp2);
      in cs;
     when !feof(fp) then
     	cs= getc(fp);
@@ -43,7 +43,7 @@ in argvinout($ * s){
 }
 
 in defkey($ * i){
-	FILE * fp = fopen("../.PLPv2b/Define","a");
+	FILE * fp = fopen("../PLPv2b/Define","a");
 	fputs("#define ",fp);
 	fprintf(fp,Str$ i);
 	fprintf(fp,nline);
@@ -63,7 +63,7 @@ in cc(out){
     strcpy(str3,"c++ ");
     FILE * aout = fopen("/tmp/aout","r");
     cond aout != NULL)
-    strcat(str3,"-no-pie /tmp/aout ~/.PLPv2b/cmath.o ~/.PLPv2b/IO.o ~/.PLPv2b/luasyntax.o ~/.PLPv2b/lib.o ~/.PLPv2b/cs50.o ~/.PLPv2b/lua/hash.o ~/.PLPv2b/lua/inout.o ~/.PLPv2b/lua/lex_yy.o ~/.PLPv2b/lua/opcode.o ~/.PLPv2b/lua/table.o ~/.PLPv2b/lua/y_tab.o ~/.PLPv2b/lua/iolib.o ~/.PLPv2b/lua/mathlib.o ~/.PLPv2b/lua/strlib.o -lm");
+    strcat(str3,"-no-pie /tmp/aout ~/PLPv2b/cmath.o ~/PLPv2b/IO.o ~/PLPv2b/luasyntax.o ~/PLPv2b/lib.o ~/PLPv2b/cs50.o ~/PLPv2b/lua/hash.o ~/PLPv2b/lua/inout.o ~/PLPv2b/lua/lex_yy.o ~/PLPv2b/lua/opcode.o ~/PLPv2b/lua/table.o ~/PLPv2b/lua/y_tab.o ~/PLPv2b/lua/iolib.o ~/PLPv2b/lua/mathlib.o ~/PLPv2b/lua/strlib.o -lm");
     other {
     plp_error("NULL");
     remove("/tmp/cplp.c");
@@ -83,7 +83,7 @@ in cpp(out){
     strcpy(str5,"c++ ");
     FILE * aout = fopen("/tmp/aout","r");
     cond aout != NULL)
-    strcat(str5,"-no-pie /tmp/aout ~/.PLPv2b/cmath.o ~/.PLPv2b/IO.o ~/.PLPv2b/luasyntax.o ~/PLPv2b/lib.o ~/.PLPv2b/cs50.o ~/.PLPv2b/lua/hash.o ~/.PLPv2b/lua/inout.o ~/.PLPv2b/lua/lex_yy.o ~/.PLPv2b/lua/opcode.o ~/.PLPv2b/lua/table.o ~/.PLPv2b/lua/y_tab.o ~/.PLPv2b/lua/iolib.o ~/.PLPv2b/lua/mathlib.o ~/.PLPv2b/lua/strlib.o -lm");
+    strcat(str5,"-no-pie /tmp/aout ~/PLPv2b/cmath.o ~/PLPv2b/IO.o ~/PLPv2b/luasyntax.o ~/PLPv2b/lib.o ~/PLPv2b/cs50.o ~/PLPv2b/lua/hash.o ~/PLPv2b/lua/inout.o ~/PLPv2b/lua/lex_yy.o ~/PLPv2b/lua/opcode.o ~/PLPv2b/lua/table.o ~/PLPv2b/lua/y_tab.o ~/PLPv2b/lua/iolib.o ~/PLPv2b/lua/mathlib.o ~/PLPv2b/lua/strlib.o -lm");
     other {
     plp_error("NULL");
     remove("/tmp/cplp.cpp");
