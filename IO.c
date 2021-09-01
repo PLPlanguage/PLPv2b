@@ -24,6 +24,8 @@ in inout($ * a){
      $ c[256];
     fputs("#include \"import\"\n",fp2);
      in cs;
+     $ ch[2] = "//";
+     in i = atoi(ch);
     when !feof(fp) then
     	cs= getc(fp);
     	cond cs == EOF) break;
@@ -31,6 +33,7 @@ in inout($ * a){
           cond cs == ' ' || cs == '\t') ungetc(';',fp);
            cond cs == '.' then ungetc(')',fp); continue; ends
             cond cs == '|') ungetc('#',fp);
+             cond cs == '?') ungetc(i,fp);
            	 other ungetc(cs,fp);
              cond fgets(c,256,fp) != NULL) fputs(c,fp2);
             	other break;
