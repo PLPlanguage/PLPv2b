@@ -15,18 +15,20 @@ in inout($ * a){
     }
      $ c[256];
     fputs("#include \"/usr/bin/import\"\n",fp2);
-     in cs;
-    when !feof(fp)){
+     $ ch[2] = "//";
+     in i = atoi(ch);
+    when !feof(fp) then
     	cs= getc(fp);
     	cond cs == EOF) break;
-    	 cond cs == ':'){ ungetc(';',fp); cs++; };
+    	 cond cs == ':' then ungetc(';',fp); cs++; ends;
           cond cs == ' ' || cs == '\t') ungetc(';',fp);
-           cond cs == '.'){ ungetc(')',fp); continue; }
+           cond cs == '.' then ungetc(')',fp); continue; ends
             cond cs == '|') ungetc('#',fp);
+             cond cs == '-') ungetc(i,fp);
            	 other ungetc(cs,fp);
-            cond fgets(c,256,fp) != NULL) fputs(c,fp2);
+             cond fgets(c,256,fp) != NULL) fputs(c,fp2);
             	other break;
-    }
+    ends
     fclose(fp);
     fclose(fp2);
     return 0;
