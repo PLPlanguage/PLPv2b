@@ -1,6 +1,6 @@
 P= PLP
 
-CP= Compiler.c luasyntax.c luasyntax.h lib.c lib.h IO.c IO.h cmath.c cmath.h cs50.c cs50.h import Define Type fixconf Makefile
+CP= bin/IO.c Compiler.c luasyntax.c luasyntax.h lib.c lib.h IO.h cmath.c cmath.h cs50.c cs50.h import Define Type fixconf Makefile
 
 CFLAGS= -O2 -I. -Wall
 
@@ -8,15 +8,9 @@ OBJ= Compiler.o IO.o cmath.o luasyntax.o lib.o cs50.o
 
 LUA= lua
 
-GET= curl -R -O http://downloads.plplanguage.ir/PLPv2b/$(LUA).tar.gz
-
-TAR= $(LUA).tar.gz
-
 OBJS= $(LUA)/hash.o $(LUA)/inout.o $(LUA)/lex_yy.o $(LUA)/opcode.o $(LUA)/table.o $(LUA)/y_tab.o $(LUA)/iolib.o $(LUA)/mathlib.o $(LUA)/strlib.o
 
 BIN= /usr/bin
-
-FIX= curl -R -O http://downloads.plplanguage.ir/PLPv2b/bin/IO.c
 
 T= test.plp 
 
@@ -30,9 +24,7 @@ $P:	$(OBJ)
 	
 install: 
 	cp $(CP) $(BIN)
-	@cd $(BIN) && $(GET)
-	@cd $(BIN) && $(FIX)
-	@cd $(BIN) && tar xzf $(TAR)
+	cp -r $(LUA) $(BIN)
 	@cd $(BIN) && $(MAKE)
 
 deinstall:
