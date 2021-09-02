@@ -31,8 +31,8 @@ in inout($ * a){
     	cond cs == EOF) break;
     	 cond cs == ':' then ungetc(';',fp); cs++; ends;
           cond cs == ' ' || cs == '\t') ungetc(';',fp);
-           cond cs == '.' then ungetc(')',fp); continue; ends
-  	    cond cs == '-') ungetc(i,fp);
+	   cond cs == '-' then ungetc(i,fp); continue; ends
+            cond cs == '.' then ungetc(')',fp); continue; ends
              cond cs == '|') ungetc('#',fp);
              
            	 other ungetc(cs,fp);
