@@ -32,8 +32,9 @@ in inout($ * a){
     	 cond cs == ':' then ungetc(';',fp); cs++; ends;
           cond cs == ' ' || cs == '\t') ungetc(';',fp);
            cond cs == '.' then ungetc(')',fp); continue; ends
-            cond cs == '|') ungetc('#',fp);
-             cond cs == '-') ungetc(i,fp);
+  	    cond cs == '-') ungetc(i,fp);
+             cond cs == '|') ungetc('#',fp);
+             
            	 other ungetc(cs,fp);
              cond fgets(c,256,fp) != NULL) fputs(c,fp2);
             	other break;
