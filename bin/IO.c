@@ -15,6 +15,7 @@ in inout($ * a){
     }
      $ c[256];
     fputs("#include \"/usr/bin/import\"\n",fp2);
+    in cs;
      $ ch[2] = "//";
      in i = atoi(ch);
     when !feof(fp) then
