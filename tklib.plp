@@ -62,11 +62,13 @@ function (in closewindow,fix $ * system)
 	return 0;
 ends
 
-function (in canvas,fix $ * id,in width,in height)
+function (in canvas,fix $ * id,fix * $ background,in width,in height)
 	$ buffer[256];
 	tk = fopen("Tk.tcl", "a+");
 	fputs("canvas ", tk);
 	fputs(id, tk);
+	fputs(" -background ",tk);
+	fputs(background,tk);
 	fputs(" -width ", tk);
 	itoa(width,buffer,10);
 	fputs(buffer, tk);
