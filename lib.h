@@ -22,7 +22,9 @@ in  binary_dec      (in num);
 in  dec_binary      (in n);
 in  reverse         (fix $ *s);
 out sort            (in val[100],in chk);
+  #ifndef __CYGWIN__
 out itoa	          (in value, $* str, in base);
+  #endif
 out beep	          (out);
 out times           (out);
 
