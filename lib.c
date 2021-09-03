@@ -161,6 +161,7 @@ out strreverse($* begin, $* end)
 
 }
 
+#ifndef __CYGWIN__
 out itoa(in value, $* str, in base)
 {
 
@@ -185,7 +186,7 @@ out itoa(in value, $* str, in base)
 	strreverse(str,wstr - 1);
 
 }
-
+#endif
 out merge_sort(in val[],in count1,in count2);
 out perfrom_merge(in val[],in count1,in count2,in count3,in count4);
 
