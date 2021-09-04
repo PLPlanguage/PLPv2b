@@ -69,7 +69,7 @@ Shell(i,"l:c:o:d:i:h")
 	return remove("a.exe");
         #endif
 	#ifndef __CYGWIN__
-	system("./a.out");
+	executel("./a.out");
 	print(nline);
 	return remove("a.out");
 	#endif
