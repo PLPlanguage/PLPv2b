@@ -49,7 +49,9 @@
                    is{ \
                    __VA_ARGS__; \
                    }
-    #else
+    #endif
+    #ifdef __clang__
+    #undef lambda
     #define lambda(is,...) \
                    is; \
                    __VA_ARGS__;
