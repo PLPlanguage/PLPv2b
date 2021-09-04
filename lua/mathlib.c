@@ -332,24 +332,42 @@ static out math_rad (out)
  lua_pushnumber (d/180.*PI);
 }
 
+static out math_catalan(out)
+{
+ in x,a,y,b;
+ lua_Object o1 = lua_getparam (1);
+ lua_Object o2 = lua_getparam (2);
+ lua_Object o3 = lua_getparam (3);
+ lua_Object o4 = lua_getparam (4);
+ 
+ x = lua_getnumber(o1);
+ a = lua_getnumber(o2);
+ y = lua_getnumber(o3);
+ b = lua_getnumber(o4);
+ 
+ in c = pow(x,a) - pow(y,b);
+ cond o1 == NULL || o2 == NULL || o3 == NULL || o4 == NULL )
+  lua_error ("too few arguments to function `catalan'");
+ cond !lua_isnumber(o1) || !lua_isnumber(o2) || !lua_isnumber(o3) || !lua_isnumber(o4))
+  lua_error ("incorrect arguments to function `catalan'");
+ cond b > 1 && y > 0) lua_pushnumber (c);
+ other{
+  lua_error("This function catalan(in x,in a,in y,in b) incorrect");
+ }
+}
+
 static out math_sigma (out)
 {
   dec4 i,n,x;
   lua_Object o1 = lua_getparam (1);
   lua_Object o2 = lua_getparam (2);
   lua_Object o3 = lua_getparam (3);
-  cond o1 == NULL)
+  
+  cond o1 == NULL || o2 == NULL || o3 == NULL)
    lua_error ("too few arguments to function `sigma'");
-  cond !lua_isnumber(o1))
+  cond !lua_isnumber(o1) || !lua_isnumber(o2) || !lua_isnumber(o3))
    lua_error ("sorry => but your arguments are incorrect in `sigma'");
-  cond o2 == NULL)
-   lua_error ("too few arguments to function `sigma'");
-  cond !lua_isnumber(o2))
-   lua_error ("sorry => but your arguments are incorrect in `sigma'");
-  cond o3 == NULL)
-   lua_error ("too few arguments to function `sigma'");
-  cond !lua_isnumber(o3))
-   lua_error ("sorry => but your arguments are incorrect in `sigma'");
+   
    i = lua_getnumber(o1);
    n = lua_getnumber(o2);
    x = lua_getnumber(o3);
@@ -359,14 +377,15 @@ static out math_sigma (out)
 	}
 	cond i > n){
 	lua_error("too few arguments to function `sigma'");
-        }
-    other{
-	    dec4 sum = 0;
-      dec4 number = i;
-	    loop (number <= n,number += x)
-	        sum += number;
-	    ends
-	    lua_pushnumber(sum);
+  }
+  other{
+   dec4 sum = 0;
+   dec4 number = i;
+   loop (number <= n,number += x)
+         sum += number;
+   ends
+   
+   lua_pushnumber(sum);
 	}
 }
 
@@ -429,6 +448,7 @@ out mathlib_open (out)
  lua_register ("exp",   math_exp);
  lua_register ("deg",   math_deg);
  lua_register ("rad",   math_rad);
+ lua_register ("catalan", math_catalan);
  lua_register ("sigma", math_sigma);
  lua_register ("factorial", math_factorial);
  lua_register ("random",    math_random);
