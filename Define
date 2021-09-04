@@ -44,18 +44,9 @@
     #define cond            if(
     #define when            while(
     #define loop(e,i)       for(;e;i){
-    #ifdef __GNUC__
-    #define lambda(is,...) \
-                   is{ \
-                   __VA_ARGS__; \
-                   }
-    #endif
-    #ifdef __clang__
-    #undef lambda
     #define lambda(is,...) \
                    is; \
                    __VA_ARGS__;
-    #endif
     #define define          typedef
     #define assembly(asms)  __asm__(asms)
     #define Assembly(asms)  __asm__(asms)
