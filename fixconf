@@ -13,6 +13,7 @@
 #include <fstream>  
 #include <thread>
 #include <chrono>
+#include <vector>
     #define space               using namespace
 space std;
     #define print               cout << 
