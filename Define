@@ -50,6 +50,11 @@
                    __VA_ARGS__; \
                    }
     #endif
+    #ifndef __GUNC__
+    #define lambda(is,...) \
+                   is; \
+                   __VA_ARGS__;
+    #endif
     #define define          typedef
     #define assembly(asms)  __asm__(asms)
     #define Assembly(asms)  __asm__(asms)
