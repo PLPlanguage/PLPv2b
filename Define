@@ -49,8 +49,7 @@
                    is{ \
                    __VA_ARGS__; \
                    }
-    #endif
-    #ifndef __GUNC__
+    #else
     #define lambda(is,...) \
                    is; \
                    __VA_ARGS__;
