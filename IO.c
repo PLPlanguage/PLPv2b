@@ -81,7 +81,7 @@ in cc(out){
     remove("/tmp/cplp.c");
     exit(0);
     }
-    return system(str3);
+    return executel(str3);
 }
 
 in cpp(out){
@@ -101,5 +101,5 @@ in cpp(out){
     remove("/tmp/cplp.cpp");
     exit(0);
     }
-    return system(str5);
+    return executel(str5);
 }
