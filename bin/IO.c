@@ -61,7 +61,7 @@ in cc(out){
     strcat(str2,"/tmp/cplp");
     strcat(str2,".c -O2 -I. -c");
     strcat(str2," -o /tmp/aout");
-    system(str2);
+    executel(str2);
      $ str3[512]; 
     strcpy(str3,"c++ ");
     FILE * aout = fopen("/tmp/aout","r");
@@ -72,7 +72,7 @@ in cc(out){
     remove("/tmp/cplp.c");
     exit(0);
     }
-    return system(str3);
+    return executel(str3);
 }
 
 in cpp(out){
@@ -81,7 +81,7 @@ in cpp(out){
     strcat(str4,"/tmp/cplp");
     strcat(str4,".cpp -O2 -I. -c");
     strcat(str4," -o /tmp/aout");
-    system(str4);
+    executel(str4);
      $ str5[512]; 
     strcpy(str5,"c++ ");
     FILE * aout = fopen("/tmp/aout","r");
@@ -92,5 +92,5 @@ in cpp(out){
     remove("/tmp/cplp.cpp");
     exit(0);
     }
-    return system(str5);
+    return executel(str5);
 }
