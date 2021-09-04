@@ -45,7 +45,7 @@
     #define when            while(
     #define loop(e,i)       for(;e;i){
     #define lambda(is,...) \
-                   is; \
+                   is \
                    __VA_ARGS__;
     #define define          typedef
     #define assembly(asms)  __asm__(asms)
