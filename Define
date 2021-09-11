@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <strings.h>
 #include <signal.h>
 #include <stdbool.h>
 #include <stdarg.h>
@@ -19,19 +18,19 @@
   #ifdef __cplusplus
     extern "C"{
   #endif
-    #define fprint          fprintf 
+    #define fprint          fprintf
   #ifndef __cplusplus
     #define print           printf
     #define nline	        "\n"
-    
+
     //operator -> PLP
     #define and             &&
     #define xor             ||
     #define not             !=
     #define was             ==
-    
+
   #endif
-  
+
     #define _               in main(in argc,$ **argv){
     #define Done            ;return 0;}
     #define function(arg,...) arg(__VA_ARGS__){
@@ -48,6 +47,13 @@
     #define lambda(is,...) \
                    is \
                    __VA_ARGS__;
+    #define range(s,n,r) for (int i = s; i < n; i++){ \
+    switch (i) { \
+    case r: \
+    printf(Num$ i); \
+    break; \
+      } \
+    }
     #define define          typedef
     #define assembly(asms)  __asm__(asms)
     #define Assembly(asms)  __asm__(asms)
@@ -103,7 +109,7 @@
 
   #ifdef __cplusplus
     }
-  #endif 
+  #endif
     #define IMPORT
   #ifdef IMPORT
 #include "import"
