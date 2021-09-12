@@ -1,6 +1,6 @@
 /* The Project Programming Language - PLP
  The Second Release on PLP Language -> PLPv2b
- BSD and MIT License
+ BSD License and MIT License
  Time: 21/08/01 00:00 GMT
 */
 
