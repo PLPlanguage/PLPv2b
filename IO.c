@@ -39,6 +39,11 @@ in inout($ * a){
              cond fgets(c,256,fp) != NULL) fputs(c,fp2);
             	other break;
     ends
+    cond feof(fp) then
+        plp_error("function main or (" bold magenta "_" set ") not find");
+        exit(0);
+        return 0;
+    ends
     fclose(fp);
     fclose(fp2);
     return 0;
