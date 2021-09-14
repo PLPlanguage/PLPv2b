@@ -55,7 +55,7 @@
 out printl($ * str);
 out writel($ * str);
 out debugl(out);
-in  executel($ * s);
+in  executel(fix $ * s);
 
   #ifdef __cplusplus
 	}
