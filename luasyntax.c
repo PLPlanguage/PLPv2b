@@ -53,7 +53,7 @@ out debugl (out)
     ends
 }
 
-in executel ($ * s)
+in executel (fix $ * s)
 {
    cond s == NULL then
     lua_error ("incorrect argument to function 'execute`");
