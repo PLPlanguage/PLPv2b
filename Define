@@ -47,10 +47,10 @@
     #define lambda(is,...) \
                    is \
                    __VA_ARGS__;
-    #define range(t ,s ,n ,r) for (int i = s; i < n; i++){ \
-    switch (i) { \
+    #define range(t ,s ,n ,r) for (int aim = s; aim < n; aim++){ \
+    switch (aim) { \
     case r: \
-    printf(t Num$ i); \
+    printf(t Num$ aim); \
     break; \
       } \
     }
