@@ -53,7 +53,7 @@
     printf(t Num$ aim); \
     break; \
       } \
-    }
+    } 
     #define define          typedef
     #define assembly(asms)  __asm__(asms)
     #define Assembly(asms)  __asm__(asms)
