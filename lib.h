@@ -15,6 +15,8 @@
     extern "C"{
   #endif
 
+$* replace(fix $* s, fix $* oldW,
+                  fix $* newW);
 in  randomize       (in lower,in upper,in count);
 in  binary_hex      (lin b);
 in  hex_binary      ($ h[1000]);
