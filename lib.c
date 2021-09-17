@@ -6,6 +6,45 @@
 
 #include <lib.h>
 
+$* replace(fix $* s, fix $* oldW,
+                  fix $* newW)
+{
+    $* result;
+    in i, cnt = 0;
+    in newWlen = strlen(newW);
+    in oldWlen = strlen(oldW);
+  
+    // Counting the number of times old word
+    // occur in the string
+    i = 0;
+    loop (s[i] != '\0', i++)
+        cond strstr(&s[i], oldW) == &s[i] then
+            cnt++;
+  
+            // Jumping to index after the old word.
+            i += oldWlen - 1;
+        ends
+    ends
+  
+    // Making new string of enough length
+    result = ($*)malloc(i + cnt * (newWlen - oldWlen) + 1);
+  
+    i = 0;
+    when *s then
+        // compare the substring with the result
+        cond strstr(s, oldW) == s then
+            strcpy(&result[i], newW);
+            i += newWlen;
+            s += oldWlen;
+        ends
+        other
+            result[i++] = *s++;
+    ends
+  
+    result[i] = '\0';
+    return result;
+}
+
 //Randomize numbers
 in randomize(in lower,in upper,in count)
 {
@@ -228,7 +267,6 @@ out perfrom_merge(in val[],in count1,in count2,in count3,in count4)
 	when c2<=count4) temp_val[c3++]=val[c2++];
 	for(c1=count1,c2=0;c1<=count4;c1++,c2++) val[c1]=temp_val[c2];
 }
-
 
 out beep(out){
     print("\a");
