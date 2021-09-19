@@ -101,6 +101,7 @@
     #define Dec$  "%f",
     #define dec$  "%f",
     #define Dec4$ "%2lf",
+    #define Lnum$ "%ld",
     #define Str$  "%s",
     #define str$  "%s",
     #define Chr$  "%c",
