@@ -26,7 +26,7 @@ in inout($ * a){
 	   cond cs == '-' then ungetc(i,fp); continue; ends
             cond cs == '.' then ungetc(')',fp); continue; ends
              cond cs == '|') ungetc('#',fp);
-             
+
            	 other ungetc(cs,fp);
              cond fgets(c,256,fp) != NULL) fputs(c,fp2);
             	other break;
@@ -38,7 +38,7 @@ in inout($ * a){
 
 in argvinout($ * s){
     FILE * fp2 = fopen("/tmp/cplp","wr");
-        fputs("#include \"import\"\n _ ",fp2);
+        fputs("#include \"../PLPv2b/import\"\n _ ",fp2);
         fputs(s,fp2);
      	fputs("\nDone",fp2);
         fclose(fp2);
