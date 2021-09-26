@@ -7,7 +7,8 @@
 #include <cmath.h>
 
 //Math data in structure
-struct mathdata{
+struct mathdata
+{
     	dec4 COS;
     	dec4 TAN;
     	dec4 SIN;
@@ -18,49 +19,57 @@ struct mathdata{
     	dec8 FREXP;
 };
 
-dec4 Cos(in C){
+dec4 Cos(in C)
+{
 	struct mathdata mathc;
 	mathc.COS = cos(C);
 	return print(Dec$ mathc.COS);
 }
 
-dec4 Tan(in T){
+dec4 Tan(in T)
+{
 	struct mathdata mathc;
 	mathc.TAN = tan(T);
 	return print(Dec$ mathc.TAN);
 }
 
-dec4 Sin(in S){
+dec4 Sin(in S)
+{
 	struct mathdata mathc;
 	mathc.SIN = tan(S);
 	return print(Dec$ mathc.SIN);
 }
 
-dec4 ACos(in AC){
+dec4 ACos(in AC)
+{
     	struct mathdata mathc;
     	mathc.ACOS = acos(AC);
     	return print(Dec$ mathc.ACOS);
 }
 
-dec4 ATan(in AT){
+dec4 ATan(in AT)
+{
     	struct mathdata mathc;
     	mathc.ATAN = atan(AT);
     	return printf(Dec$ mathc.ATAN);
 }
 
-dec4 ASin(in AS){
+dec4 ASin(in AS)
+{
     	struct mathdata mathc;
     	mathc.ASIN = asin(AS);
     	return print(Dec$ mathc.ASIN);
 }
 
-dec4 Exp(dec4 E){
+dec4 Exp(dec4 E)
+{
     	struct mathdata mathc;
     	mathc.EXP = exp(E);
     	return print(Dec$ mathc.EXP);
 }
 
-dec4 Frexp(dec4 X){
+dec4 Frexp(dec4 X)
+{
         in e;
         struct mathdata mathc;
         mathc.FREXP = frexp(X, &e);
@@ -69,7 +78,8 @@ dec4 Frexp(dec4 X){
         return print(Dec4$ mathc.FREXP);
 }
 
-dec4 pi(dec4 i,dec4 n,dec4 x){
+dec4 pi(dec4 i, dec4 n, dec4 x)
+{
 	cond x < 0 || x == 0 then
 		plp_error("This function pi(dec4 i,dec4 n,dec4 x) incorrect");
 		exit(0);
@@ -80,7 +90,8 @@ dec4 pi(dec4 i,dec4 n,dec4 x){
 		exit(0);
 		return 0;
 	ends
-	other{
+	other
+	{
 		dec4 mult = 1;
 		dec4 number = i;
 		loop (number <= n,number += x)
@@ -91,7 +102,8 @@ dec4 pi(dec4 i,dec4 n,dec4 x){
 	return 0;
 }
 
-dec4 sigma(dec4 i,dec4 n,dec4 x){
+dec4 sigma(dec4 i, dec4 n, dec4 x)
+{
 	cond x < 0 || x == 0 then
 		plp_error("This function sigma(dec4 i,dec4 n,dec4 x) incorrect");
 		exit(0);
@@ -102,7 +114,8 @@ dec4 sigma(dec4 i,dec4 n,dec4 x){
     		exit(0);
     		return 0;
         ends
-	other{
+	other
+	{
 		dec4 sum = 0;
 		dec4 number = i;
 	    	loop (number <= n,number += x)
@@ -113,45 +126,52 @@ dec4 sigma(dec4 i,dec4 n,dec4 x){
 	return 0;
 }
 
-in matrix(in row,in col,in *mat){
+in matrix(in row, in col, in *mat)
+{
         in i, j;
 	i = 0;
-        loop (i < row,i++)
+        loop (i < row, i++)
 		j = 0;
-                loop (j < col,j++)
-                        print("%d ", *((mat+i*col)+j));
+                loop (j < col, j++)
+                        print("%d ", *((mat + i * col) + j));
                 ends
                 print(nline);
         ends
     return 0;
 }
 
-in mod (in d1,in d2){
-    	return d1 - floor(d1/d2)*d2;
+in mod (in d1, in d2)
+{
+    	return d1 - floor(d1 / d2) * d2;
 }
 
-in gcd(in a,in b){
+in gcd(in a, in b)
+{
     	cond b == 0)
     		return a;
     	return gcd(b, a % b);
 }
 
-in lcm(in a,in b){
+in lcm(in a, in b)
+{
 	return (a / gcd(a, b)) * b;
 }
 
-in fact (in x){
+in fact (in x)
+{
     	cond x == 1)
     		return 1;
     	other
-    		return x * fact(x-1);
+    		return x * fact (x - 1);
 }
 
-in factorial (in c){
+in factorial (in c)
+{
     	return fact(c);
 }
 
-in collatz (in n){
+in collatz (in n)
+{
    	print(Num$ n);
    	print(nline);
     	cond n <= 1)
@@ -162,13 +182,25 @@ in collatz (in n){
     	 	return collatz (n*3+1);
 }
 
-in catalan(in x,in a,in y,in b){
-    	in c = pow(x,a)-pow(y,b);
+in catalan (in x, in a, in y, in b)
+{
+    	in c = pow(x, a) - pow(y, b);
     	cond b > 1 and y > 0)
     		return c;
-    	other{
+    	other
+	{
     		plp_error("This function catalan(in x,in a,in y,in b) incorrect");
     		exit(0);
         	return 0;
     	}
+}
+
+out fermat (in e)
+{
+        in n = 0, res
+        loop (n <= e,)
+                res = pow(2, pow(2, n)) +1
+                n++
+                print(nline Num$ res)
+        ends
 }
