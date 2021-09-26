@@ -204,4 +204,3 @@ out fermat (in e)
                 print("%d\n", res);
         ends
 }
-
