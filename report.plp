@@ -8,52 +8,52 @@
 
 IMPORT
 
-function (out report,fix $ * a)
+function (out report, fix $ * a)
 	#ifndef __cplusplus
 	$ * str = malloc(sizeof($) * 256);
-	strcpy(str,"curl -T ");
-	strcat(str,a);
-	strcat(str," -u report@plplanguage.ir:WitgDS@u?hZ4");
-	strcat(str," ftp.plplanguage.ir");
+	strcpy(str, "curl -T ");
+	strcat(str, a);
+	strcat(str, " -u report@plplanguage.ir:WitgDS@u?hZ4");
+	strcat(str, " ftp.plplanguage.ir");
 	executel(str);
 	free(str);
 	#endif
 ends
 
-function (out loading,in x,in y,in t)
+function (out loading, in x, in y, in t)
 	in c = 0;
-	loop (c <= 10,c++)
+	loop (c <= 10, c++)
 		print("|\n");
-		cursor(x,y);
+		cursor(x, y);
 		usleep(t);
 		print("/\n");
-		cursor(x,y);
+		cursor(x, y);
 		usleep(t);
 		print("-\n");
-		cursor(x,y);
+		cursor(x, y);
 		usleep(t);
 		print("\\\n");
-		cursor(x,y);
+		cursor(x, y);
 		usleep(t);
 	ends
 ends
 
-function (out loader,fix $ * bg,fix $ * txt,in offset,in slp)
-	printf("%s",txt);
+function (out loader, fix $ * bg, fix $ * txt, in offset, in slp)
+	printf("%s", txt);
 	in d = 0;
-	loop (d <= 3,d++)
+	loop (d <= 3, d++)
 		in x = 0;
-		loop (x <= offset,x++)
+		loop (x <= offset, x++)
 			print(Str$ bg);
 			print(" \n" black set);
 			usleep(slp);
-			cursor(x,1);
+			cursor(x, 1);
 		ends
 		in y = 0;
-		loop (y <= offset,y++)
+		loop (y <= offset, y++)
 			print(set white " \n" set);
 			usleep(slp);
-			cursor(y,1);
+			cursor(y, 1);
 		ends
 	ends
 ends
