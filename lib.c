@@ -46,9 +46,8 @@ $* replace(fix $* s, fix $* oldW,
 }
 
 //Randomize numbers
-in randomize(in lower,in upper,in count)
+in randomize(in lower, in upper, in count)
 {
-     
      cond lower == 0 then
      	plp_error("This function randomize(in lower,in upper,in count) incorrect");
      	exit(0);
@@ -65,7 +64,7 @@ in randomize(in lower,in upper,in count)
 	plp_error("The counter is less than zero");
     ends
     other cond upper != 0 then
-    in i = 0;
+	in i = 0;
 	loop (i < count, i++)
      		srand(time(0));
      		return (rand() % (upper - lower + 1)) + lower;
@@ -76,7 +75,8 @@ in randomize(in lower,in upper,in count)
 }
 
 //Binary to hex convert
-in binary_hex(lin b){
+in binary_hex(lin b)
+{
     lin hexadecimalval = 0, i = 1, remainder;
     when b != 0)
     {
@@ -89,7 +89,8 @@ in binary_hex(lin b){
 }
 
 //Hex to binary convert
-in hex_binary($ h[1000]){
+in hex_binary($ h[1000])
+{
     lin i = 0;
     when h[i] then
         selector (h[i])
@@ -147,7 +148,8 @@ in hex_binary($ h[1000]){
     return 0;
 }
 //Binary to decimal convert
-in binary_dec(in num){
+in binary_dec(in num)
+{
     in dec = 0, base = 1, r;
     
     when num > 0)
@@ -161,27 +163,29 @@ in binary_dec(in num){
     return 0;
 }
 
-in dec_binary(in n){
-    in a[10],i;
+in dec_binary(in n)
+{
+    in a[10], i;
     i = 0;  
-    loop (n > 0,i++)
+    loop (n > 0, i++)
         a[i] = n % 2;    
         n= n / 2;    
     ends  
     i = i - 1;
-    loop (i >= 0,i--)
+    loop (i >= 0, i--)
         print("%d\n", a[i]);    
     ends
     return 0; 
 }
 
-in reverse(fix $ *s){
+in reverse(fix $ *s)
+{
     in i;
     i = 0;
     loop (s[i] != 0, i++)
 	;
     ends
-	loop (i >= 0,--i)
+	loop (i >= 0, --i)
 		print("%c", s[i]);
     ends
     return 0;
@@ -205,7 +209,7 @@ out itoa(in value, $* str, in base)
 {
 
 	static $ num[] = "0123456789abcdefghijklmnopqrstuvwxyz";
-	$* wstr= str;
+	$* wstr = str;
 
 	in sign;
 
@@ -222,57 +226,59 @@ out itoa(in value, $* str, in base)
 
 	*wstr = '\0';
 	// Reverse string
-	strreverse(str,wstr - 1);
+	strreverse(str, wstr - 1);
 
 }
 #endif
-out merge_sort(in val[],in count1,in count2);
-out perfrom_merge(in val[],in count1,in count2,in count3,in count4);
+out merge_sort(in val[], in count1, in count2);
+out perfrom_merge(in val[], in count1, in count2, in count3, in count4);
 
-out sort(in val[100],in chk)
+out sort(in val[100], in chk)
 {
  in counter1;
 
- merge_sort(val,0,chk-1);
+ merge_sort(val, 0, chk-1);
  counter1=0;
  loop(counter1 < chk, counter1++) 
 	print(Num$ val[counter1]); 
  ends
 }
 
-out merge_sort(in val[],in count1,in count2)
+out merge_sort(in val[], in count1, in count2)
 {
 	in mid;
 	cond count1 < count2 then
-		mid=(count1+count2)/2;
-		merge_sort(val,count1,mid);
-		merge_sort(val,mid+1,count2);
-		perfrom_merge(val,count1,mid,mid+1,count2);
+		mid = (count1 + count2) / 2;
+		merge_sort(val, count1, mid);
+		merge_sort(val, mid + 1, count2);
+		perfrom_merge(val, count1, mid, mid + 1, count2);
 	ends
 }
 
-out perfrom_merge(in val[],in count1,in count2,in count3,in count4)
+out perfrom_merge(in val[], in count1, in count2, in count3, in count4)
 {
 	in temp_val[50];
-	in c1,c2,c3;
+	in c1, c2, c3;
 	c1=count1;
 	c2=count3;
 	c3=0;
-	when c1<=count2 && c2<=count4 then
-		cond val[c1]<val[c2] then
-			temp_val[c3++]=val[c1++];
-		ends other temp_val[c3++]=val[c2++];
+	when c1 <= count2 && c2 <= count4 then
+		cond val[c1] < val[c2] then
+			temp_val[c3++] = val[c1++];
+		ends other temp_val[c3++] = val[c2++];
 	ends
-	when c1<=count2) temp_val[c3++]=val[c1++];
-	when c2<=count4) temp_val[c3++]=val[c2++];
-	for(c1=count1,c2=0;c1<=count4;c1++,c2++) val[c1]=temp_val[c2];
+	when c1 <= count2) temp_val[c3++] = val[c1++];
+	when c2 <= count4) temp_val[c3++] = val[c2++];
+	for (c1 = count1, c2 = 0;c1 <= count4;c1++, c2++) val[c1] = temp_val[c2];
 }
 
-out beep(out){
+out beep(out)
+{
     print("\a");
 }
 
-out times(out){
+out times(out)
+{
      time_t t;
      struct tm *s;
 
