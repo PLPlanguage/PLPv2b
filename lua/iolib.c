@@ -29,8 +29,6 @@ static FILE *input=NULL, *output=NULL;
 
 #define LUA_TMPNAMBUFSIZE       32
 
-#include <unistd.h>
-
 #define lua_tmpnam(b,e) { \
         strcpy(b, "/tmp/lua_XXXXXX"); \
         e = mkstemp(b); \
