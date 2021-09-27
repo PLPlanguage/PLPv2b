@@ -46,6 +46,7 @@ in   lcm	    (in a,in b);
 in   factorial      (in c);
 in   collatz        (in n);
 in   catalan        (in x,in a,in y,in b);
+out  fermat 	    (in e);
   
   #ifdef __cplusplus
 	}
