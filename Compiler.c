@@ -8,7 +8,8 @@
 #include <luasyntax.h>
 
 // When user CTRL + C (signal 2) entered
-out cpress(in sig){
+out cpress(in sig)
+{
 	fprint(stdout,"\nCTRL+C Pressed.\n");
 	beep();
 	exit(0);
@@ -22,7 +23,8 @@ _
  $ * a = NULL;
 // PLP Compiler Arguments
 Shell(i,"l:c:o:d:i:h")
- selector(i){
+ selector(i)
+ {
     selection 'l':
        a = getshell;
             iolib_open();
@@ -114,10 +116,11 @@ Shell(i,"l:c:o:d:i:h")
             print("Compile file with -%c [file]\n",shelloption);
 	    return 0;
     ends
-	other{
+	other
+	{
 	    print("This argument does not exist -%c\n",shelloption);
 	    return 0;
-    }
+	}
                   break;
     default:
             abort();
@@ -177,7 +180,8 @@ ends
         print("   [compile c] \tCommand execute a PLP file (advanced)\n");
         print("   [lua] \tCommand execute a LUA file\n");
         ends
-        other{
+        other
+	{
                 iolib_open ();
                 strlib_open ();
                 mathlib_open ();
