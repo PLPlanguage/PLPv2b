@@ -199,6 +199,7 @@ out fermat (in e)
 {
         in n = 0;
 	dec8 res;
+	
         loop (n <= e, )
                 res = pow(2, pow(2, n)) + 1;
                 n++;
