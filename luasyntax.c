@@ -47,7 +47,7 @@ out debugl (out)
    when 1 then
      $ buffer[256];
     fprintf(stderr, "luaPLP_debug|>");
-   cond fgets(buffer, sizeof(buffer),stdin) == 0) return;
+   cond fgets(buffer, sizeof(buffer), stdin) == 0) return;
    cond indexof(buffer, "exit\n",0)) return;
     dostring(buffer);
     ends
@@ -59,7 +59,8 @@ in executel (fix $ * s)
     lua_error ("incorrect argument to function 'execute`");
     return 0;
  ends
-   other{
+   other
+ {
     in res = system(s);
     return res;
  }
