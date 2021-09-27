@@ -13,11 +13,11 @@ FILE * tk;
 
 function (out reset)
 	tk = fopen("Tk.tcl", "w+");
-	fputs("",tk);
+	fputs("", tk);
 	fclose(tk);
 ends
 
-function (out exec,fix $ * system)
+function (out exec, fix $ * system)
 	tk = fopen("Tk.tcl", "a+");
 	fputs("exec ", tk);
 	fputs(system, tk);
@@ -25,7 +25,7 @@ function (out exec,fix $ * system)
 	fclose(tk);
 ends
 
-function (out proc,fix $ * func,fix $ * commands)
+function (out proc, fix $ * func, fix $ * commands)
 	tk = fopen("Tk.tcl", "a+");
 	fputs("proc ", tk);
 	fputs(func, tk);
@@ -35,7 +35,7 @@ function (out proc,fix $ * func,fix $ * commands)
 	fclose(tk);
 ends
 
-function (in title,fix $ * system)
+function (in title, fix $ * system)
 	tk = fopen("Tk.tcl", "a+");
 	fputs("wm title . \"", tk);
 	fputs(system, tk);
@@ -44,7 +44,7 @@ function (in title,fix $ * system)
 	return 0;
 ends
 
-function (in icon,fix $ * system)
+function (in icon, fix $ * system)
 	tk = fopen("Tk.tcl", "a+");
 	fputs("wm iconbitmap . ", tk);
 	fputs(system, tk);
@@ -53,7 +53,7 @@ function (in icon,fix $ * system)
 	return 0;
 ends
 
-function (in closewindow,fix $ * system)
+function (in closewindow, fix $ * system)
 	tk = fopen("Tk.tcl", "a+");
 	fputs("wm protocol . WM_DELETE_WINDOW ", tk);
 	fputs(system, tk);
@@ -62,18 +62,18 @@ function (in closewindow,fix $ * system)
 	return 0;
 ends
 
-function (in canvas,fix $ * id,fix $ * background,in width,in height)
+function (in canvas, fix $ * id, fix $ * background, in width, in height)
 	$ buffer[256];
 	tk = fopen("Tk.tcl", "a+");
 	fputs("canvas ", tk);
 	fputs(id, tk);
-	fputs(" -background ",tk);
+	fputs(" -background ", tk);
 	fputs(background,tk);
 	fputs(" -width ", tk);
-	itoa(width,buffer,10);
+	itoa(width, buffer, 10);
 	fputs(buffer, tk);
 	fputs(" -height ", tk);
-	itoa(height,buffer,10);
+	itoa(height, buffer, 10);
 	fputs(buffer, tk);
 	fputs(" \npack ", tk);
 	fputs(id, tk);
@@ -82,7 +82,7 @@ function (in canvas,fix $ * id,fix $ * background,in width,in height)
 	return 0;
 ends
 
-function (in id,fix $ * id,fix $ * system)
+function (in id, fix $ * id, fix $ * system)
 	tk = fopen("Tk.tcl", "a+");
 	fputs(id, tk);
 	fputs(" ", tk);
@@ -92,7 +92,7 @@ function (in id,fix $ * id,fix $ * system)
 	return 0;
 ends
 
-function (in button,fix $ * id,fix $ * command,in padx,in pady,fix $ * txt)
+function (in button, fix $ * id, fix $ * command, in padx, in pady, fix $ * txt)
 	tk = fopen("Tk.tcl", "a+");
 	$ buffer[256];
 	fputs("button ", tk);
@@ -100,10 +100,10 @@ function (in button,fix $ * id,fix $ * command,in padx,in pady,fix $ * txt)
 	fputs(" -command {", tk);
 	fputs(command, tk);
 	fputs("} -padx ", tk);
-	itoa(padx,buffer,10);
+	itoa(padx, buffer, 10);
 	fputs(buffer, tk);
 	fputs(" -pady ", tk);
-	itoa(pady,buffer,10);
+	itoa(pady, buffer, 10);
 	fputs(buffer, tk);
 	fputs(" -text \"", tk);
 	fputs(txt, tk);
@@ -114,10 +114,10 @@ function (in button,fix $ * id,fix $ * command,in padx,in pady,fix $ * txt)
 	return 0;
 ends
 
-function (in messageBox,fix $ * type,fix $ * icon,fix $ * title,fix $ * message)
+function (in messageBox, fix $ * type, fix $ * icon, fix $ * title, fix $ * message)
 	tk = fopen("Tk.tcl", "a+");
 	fputs("tk_messageBox -type ", tk);
-	fputs(type,tk);
+	fputs(type, tk);
 	fputs(" -icon ", tk);
 	fputs(icon, tk);
 	fputs(" -title ", tk);
@@ -129,7 +129,7 @@ function (in messageBox,fix $ * type,fix $ * icon,fix $ * title,fix $ * message)
 	return 0;
 ends
 
-function (in entry,fix $ * id,fix $ * background,fix $ * foreground,fix $ * textvar,fix $ * width,fix $ * justify)
+function (in entry, fix $ * id, fix $ * background, fix $ * foreground, fix $ * textvar, fix $ * width, fix $ * justify)
 	tk = fopen("Tk.tcl", "a+");
 	fputs("entry ", tk);
 	fputs(id, tk);
