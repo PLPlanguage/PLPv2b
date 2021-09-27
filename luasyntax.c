@@ -24,9 +24,9 @@ out printl ($ *str)
 {
     luaimport();
      $ strs[256];
-    strcpy(strs,"print(");
-    strcat(strs,str);
-    strcat(strs,")");
+    strcpy(strs, "print(");
+    strcat(strs, str);
+    strcat(strs, ")");
     dostring(strs);
 }
 
@@ -34,9 +34,9 @@ out writel ($ *str)
 {
     luaimport();
      $ strs[256];
-     strcpy(strs,"write(");
-     strcat(strs,str);
-     strcat(strs,")");
+     strcpy(strs, "write(");
+     strcat(strs, str);
+     strcat(strs, ")");
      dostring(strs);
      return;
 }
