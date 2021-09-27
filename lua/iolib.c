@@ -27,6 +27,16 @@
 #include "../import"
 static FILE *input=NULL, *output=NULL;
 
+#define LUA_TMPNAMBUFSIZE       32
+
+#include <unistd.h>
+
+#define lua_tmpnam(b,e) { \
+        strcpy(b, "/tmp/lua_XXXXXX"); \
+        e = mkstemp(b); \
+        if (e != -1) close(e); \
+        e = (e == -1); }
+
 /*
 ** Open a file to read.
 ** LUA interface:
@@ -513,7 +523,12 @@ static out io_getenv (out)
 
 static out io_tmpname (out)
 {
-  lua_pushstring(tmpnam(NULL));
+  char buff[LUA_TMPNAMBUFSIZE];
+  int err;
+  lua_tmpnam(buff, err);
+  if (err)
+    return lua_error("unable to generate a unique filename");
+  lua_pushstring(buff);
 }
 
 /*
