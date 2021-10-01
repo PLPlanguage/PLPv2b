@@ -29,7 +29,7 @@
 	extern "C"{
   #endif
 
-dec8  fermat 	    (in n);
+dec8 fermat 	    (in n);
 dec4 Cos	    (in C);
 dec4 Tan	    (in T);
 dec4 Sin	    (in S);
