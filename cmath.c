@@ -195,14 +195,8 @@ in catalan (in x, in a, in y, in b)
     	}
 }
 
-out fermat (in e)
+dec8 fermat (in n)
 {
-        in n = 0;
-	dec8 res;
-	
-        loop (n <= e, )
-                res = pow(2, pow(2, n)) + 1;
-                n++;
-                print("%.lf\n", res);
-        ends
+	return pow(2, pow(2, n)) + 1;
 }
+
