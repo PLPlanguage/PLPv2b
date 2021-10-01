@@ -19,6 +19,11 @@ struct mathdata
     	dec8 FREXP;
 };
 
+dec8 fermat (in n)
+{
+	return pow(2, pow(2, n)) + 1;
+}
+
 dec4 Cos(in C)
 {
 	struct mathdata mathc;
@@ -193,10 +198,5 @@ in catalan (in x, in a, in y, in b)
     		exit(0);
         	return 0;
     	}
-}
-
-dec8 fermat (in n)
-{
-	return pow(2, pow(2, n)) + 1;
 }
 
