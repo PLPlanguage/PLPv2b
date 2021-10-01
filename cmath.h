@@ -29,6 +29,7 @@
 	extern "C"{
   #endif
 
+dec8  fermat 	    (in n);
 dec4 Cos	    (in C);
 dec4 Tan	    (in T);
 dec4 Sin	    (in S);
@@ -46,7 +47,7 @@ in   lcm	    (in a,in b);
 in   factorial      (in c);
 in   collatz        (in n);
 in   catalan        (in x,in a,in y,in b);
-out  fermat 	    (in e);
+
   
   #ifdef __cplusplus
 	}
