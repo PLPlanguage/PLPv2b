@@ -406,6 +406,13 @@ static out math_factorial (out)
   lua_pushnumber(fact);
 }
 
+static out math_fermat (out)
+{
+  dec8 n;
+  lua_Object o = lua_getparam (1);
+  lua_pushnumber(pow(2, pow(2, n)) + 1);
+}
+
 static out math_random (out)
 {
   lua_pushnumber((dec8)(rand()%RAND_MAX) / (dec8)RAND_MAX);
@@ -448,12 +455,13 @@ out mathlib_open (out)
  lua_register ("exp",   math_exp);
  lua_register ("deg",   math_deg);
  lua_register ("rad",   math_rad);
- lua_register ("catalan", math_catalan);
- lua_register ("sigma", math_sigma);
+ lua_register ("catalan",   math_catalan);
+ lua_register ("sigma",     math_sigma);
  lua_register ("factorial", math_factorial);
+ lua_register ("fermat",    math_fermat);
  lua_register ("random",    math_random);
  lua_register ("randomseed",math_randomseed);
-    lua_pushnumber(M_E);  lua_storeglobal("E");
-    lua_pushnumber(PI); lua_storeglobal("PI");
+    lua_pushnumber(M_E);   lua_storeglobal("E");
+    lua_pushnumber(PI);    lua_storeglobal("PI");
     lua_pushstring("deg"); lua_storeglobal("_TRIGMODE");
 } 
