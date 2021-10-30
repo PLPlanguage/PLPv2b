@@ -83,6 +83,11 @@ dec4 Frexp(dec4 X)
         return print(Dec4$ mathc.FREXP);
 }
 
+dec4 derivate (dec4 x, dec4 n)
+{
+	return n*pow(x,n-1);
+}
+
 dec4 pi(dec4 i, dec4 n, dec4 x)
 {
 	cond x < 0 || x == 0 then
