@@ -38,7 +38,7 @@ dec4 ATan           (in AT);
 dec4 ASin           (in AS);
 dec4 Exp            (dec4 E);
 dec4 Frexp          (dec4 X);
-dec4 derivate       (dec4 x, dec4 n);
+dec4 derivative     (dec4 x, dec4 n);
 dec4 pi		    (dec4 i,dec4 n,dec4 x);
 dec4 sigma	    (dec4 i,dec4 n,dec4 x);
 in   matrix	    (in row,in column,in *mat);
