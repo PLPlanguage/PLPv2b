@@ -56,7 +56,7 @@ dec4 ATan(in AT)
 {
     	struct mathdata mathc;
     	mathc.ATAN = atan(AT);
-    	return printf(Dec$ mathc.ATAN);
+    	return print(Dec$ mathc.ATAN);
 }
 
 dec4 ASin(in AS)
