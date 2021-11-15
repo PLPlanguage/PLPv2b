@@ -96,6 +96,7 @@
 
     //print;
   #if defined(print)
+    #define Decs(x)  "%." x "f",
     #define Num$  "%d",
     #define num$  "%d",
     #define Dec$  "%f",
