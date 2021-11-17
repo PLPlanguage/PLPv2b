@@ -12,8 +12,8 @@
 #include <math.h>
     
     #define PI          acos(0.0)*2
-    #define Euler	2.718281828459045
-    #define Enum	2.718281828459045
+    #define Euler	exp(1)
+    #define Enum	exp(1)
 
     #define deg(a) ((a)*180.0/PI)
     #define rad(a)    ((a)*PI/180.0)
