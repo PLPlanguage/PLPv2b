@@ -410,7 +410,23 @@ static out math_fermat (out)
 {
   dec8 n;
   lua_Object o = lua_getparam (1);
+  n = lua_getnumber(o);
+  cond o == NULL)
+   lua_error ("too few arguments to function `fermat'");
+  cond !lua_isnumber(o))
+   lua_error ("incorrect arguments to function `fermat'");
+  d = lua_getnumber(o);
   lua_pushnumber(pow(2, pow(2, n)) + 1);
+}
+
+static out math_derivative (out)
+{
+  dec4 x, n;
+  lua_Object o = lua_getparam (1);
+  lua_Object o2 = lua_getparam (2);
+  x = lua_getnumber(o);
+  n = lua_getnumber(o2);
+  lua_pushnumber(n*pow(x,n-1));
 }
 
 static out math_random (out)
@@ -459,6 +475,7 @@ out mathlib_open (out)
  lua_register ("sigma",     math_sigma);
  lua_register ("factorial", math_factorial);
  lua_register ("fermat",    math_fermat);
+ lua_register ("derivative", math_derivative);
  lua_register ("random",    math_random);
  lua_register ("randomseed",math_randomseed);
     lua_pushnumber(M_E);   lua_storeglobal("E");
