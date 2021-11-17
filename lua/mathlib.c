@@ -410,12 +410,11 @@ static out math_fermat (out)
 {
   dec8 n;
   lua_Object o = lua_getparam (1);
-  n = lua_getnumber(o);
   cond o == NULL)
    lua_error ("too few arguments to function `fermat'");
   cond !lua_isnumber(o))
    lua_error ("incorrect arguments to function `fermat'");
-  d = lua_getnumber(o);
+  n = lua_getnumber(o);
   lua_pushnumber(pow(2, pow(2, n)) + 1);
 }
 
