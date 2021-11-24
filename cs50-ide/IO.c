@@ -47,7 +47,7 @@ in argvinout($ * s){
 }
 
 in defkey($ * i){
-	FILE * fp = fopen("../PLPv2b/Define","a");
+	FILE * fp = fopen("PLPv2b/Define","a");
 	fputs("#define ",fp);
 	fprintf(fp,Str$ i);
 	fprintf(fp,nline);
