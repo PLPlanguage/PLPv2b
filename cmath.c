@@ -192,16 +192,16 @@ in collatz (in n)
     	 	return collatz (n*3+1);
 }
 
-in catalan (in x, in a, in y, in b)
-{
-    	in c = pow(x, a) - pow(y, b);
-    	cond b > 1 and y > 0)
-    		return c;
-    	other
-	{
-    		plp_error("This function catalan(in x,in a,in y,in b) incorrect");
-    		exit(0);
-        	return 0;
-    	}
+ULIN catalan(UIN n) {
+   in i = 0;
+   // Base case
+   cond n <= 1 then
+	return 1;
+   ends
+   // catalan(n) is sum of catalan(i)*catalan(n-i-1)
+   ULIN res = 0;
+   loop (i < n, i++)
+      	res += catalan(i) * catalan(n-i-1);
+   ends
+   return res;
 }
-
