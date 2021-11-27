@@ -38,5 +38,6 @@
 	    define long double LDEC8;
 	    define long double ldec8;
         define unsigned long ULNUM;
+	define unsigned long ulnum;
   #endif
 
