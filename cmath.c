@@ -56,7 +56,7 @@ dec4 ATan(in AT)
 {
     	struct mathdata mathc;
     	mathc.ATAN = atan(AT);
-    	return printf(Dec$ mathc.ATAN);
+    	return print(Dec$ mathc.ATAN);
 }
 
 dec4 ASin(in AS)
@@ -85,7 +85,7 @@ dec4 Frexp(dec4 X)
 
 dec4 derivative (dec4 x, dec4 n)
 {
-	return n*pow(x,n-1);
+	return n * pow(x, n - 1);
 }
 
 dec4 pi(dec4 i, dec4 n, dec4 x)
@@ -128,7 +128,7 @@ dec4 sigma(dec4 i, dec4 n, dec4 x)
 	{
 		dec4 sum = 0;
 		dec4 number = i;
-	    	loop (number <= n,number += x)
+	    	loop (number <= n, number += x)
 			sum += number;
 		ends
 	    	return sum;
@@ -187,21 +187,19 @@ in collatz (in n)
     	cond n <= 1)
     		return 1;
     	other cond n % 2 == 0)
-    	 	return collatz (n/2);
+    	 	return collatz (n / 2);
     	other
-    	 	return collatz (n*3+1);
+    	 	return collatz (n * 3 + 1);
 }
 
-in catalan (in x, in a, in y, in b)
+ULIN catalan(UIN n) 
 {
-    	in c = pow(x, a) - pow(y, b);
-    	cond b > 1 and y > 0)
-    		return c;
-    	other
-	{
-    		plp_error("This function catalan(in x,in a,in y,in b) incorrect");
-    		exit(0);
-        	return 0;
-    	}
+   in i = 0;
+   cond n <= 1) 
+	   return 1;
+   ULIN res = 0;
+   loop (i < n, i++)
+      	res += catalan(i) * catalan(n - i - 1);
+   ends
+   return res;
 }
-
