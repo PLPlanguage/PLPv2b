@@ -332,11 +332,41 @@ static out math_rad (out)
  lua_pushnumber (d/180.*PI);
 }
 
+static out math_pi (out)
+{
+ dec4 i, n, x;
+ lua_Object o1 = lua_getparam (1);
+ lua_Object o2 = lua_getparam (2);
+ lua_Object o3 = lua_getparam (3);
+ cond o1 == NULL || o2 == NULL || o3 == NULL)
+   lua_error ("too few arguments to function `pi'");
+ cond !lua_isnumber(o1) || !lua_isnumber(o2) || !lua_isnumber(o3))
+   lua_error ("incorrect arguments to function `pi'");
+ i = lua_getnumber(o1);
+ n = lua_getnumber(o2);
+ x = lua_getnumber(o3);
+ cond x < 0 || x == 0 then
+		lua_error("This function pi(dec4 i,dec4 n,dec4 x) incorrect");
+	ends
+	cond i > n then
+		lua_error("This function pi(dec4 i,dec4 n,dec4 x) incorrect");
+	ends
+	other
+	{
+		dec4 mult = 1;
+		dec4 number = i;
+		loop (number <= n,number += x)
+			mult *= number;
+		ends
+		lua_pushnumber(mult);
+	}
+}
+
 ulin factc (ulin x)
 {
-  cond x == 1)
+ cond x == 1)
     return 1;
-  other
+ other
     return x * factc (x - 1);
 }
 
@@ -354,38 +384,39 @@ static out math_catalan(out)
 
 static out math_sigma (out)
 {
-  dec4 i,n,x;
-  lua_Object o1 = lua_getparam (1);
-  lua_Object o2 = lua_getparam (2);
-  lua_Object o3 = lua_getparam (3);
-  
-  cond o1 == NULL || o2 == NULL || o3 == NULL)
-   lua_error ("too few arguments to function `sigma'");
-  cond !lua_isnumber(o1) || !lua_isnumber(o2) || !lua_isnumber(o3))
-   lua_error ("sorry => but your arguments are incorrect in `sigma'");
-   
-   i = lua_getnumber(o1);
-   n = lua_getnumber(o2);
-   x = lua_getnumber(o3);
-    cond x < 0){
-	lua_error("sorry => but your arguments are incorrect in `sigma'");
-	return;
-	}
-	cond i > n){
-	lua_error("too few arguments to function `sigma'");
-  }
-  other{
-   dec4 sum = 0;
-   dec4 number = i;
-   loop (number <= n,number += x)
-         sum += number;
-   ends
-   
-   lua_pushnumber(sum);
-	}
+ dec4 i,n,x;
+ lua_Object o1 = lua_getparam (1);
+ lua_Object o2 = lua_getparam (2);
+ lua_Object o3 = lua_getparam (3);
+
+ cond o1 == NULL || o2 == NULL || o3 == NULL)
+  lua_error ("too few arguments to function `sigma'");
+ cond !lua_isnumber(o1) || !lua_isnumber(o2) || !lua_isnumber(o3))
+  lua_error ("sorry => but your arguments are incorrect in `sigma'");
+
+ i = lua_getnumber(o1);
+ n = lua_getnumber(o2);
+ x = lua_getnumber(o3);
+ cond x < 0 then
+  lua_error("sorry => but your arguments are incorrect in `sigma'");
+  return;
+ ends
+ cond i > n then
+  lua_error("too few arguments to function `sigma'");
+ ends
+ other
+ {
+  dec4 sum = 0;
+  dec4 number = i;
+  loop (number <= n,number += x)
+    sum += number;
+  ends
+
+  lua_pushnumber(sum);
+ }
 }
 
-static out math_factorial (out) 
+static out math_factorial (out)
 {
   in d;
   in fact=1;
@@ -396,7 +427,7 @@ static out math_factorial (out)
    lua_error ("incorrect arguments to function `factorial'");
   d = lua_getnumber(o);
   in i=1;
-  loop (i<=d,i++) 
+  loop (i<=d,i++)
    fact= fact*i;
   ends
   lua_pushnumber(fact);
@@ -466,6 +497,7 @@ out mathlib_open (out)
  lua_register ("exp",   math_exp);
  lua_register ("deg",   math_deg);
  lua_register ("rad",   math_rad);
+ lua_register ("pi",    math_pi);
  lua_register ("catalan",    math_catalan);
  lua_register ("sigma",      math_sigma);
  lua_register ("factorial",  math_factorial);
@@ -476,4 +508,4 @@ out mathlib_open (out)
     lua_pushnumber(M_E);   lua_storeglobal("E");
     lua_pushnumber(PI);    lua_storeglobal("PI");
     lua_pushstring("deg"); lua_storeglobal("_TRIGMODE");
-} 
+}
