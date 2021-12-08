@@ -362,14 +362,6 @@ static out math_pi (out)
 	}
 }
 
-ulin factc (ulin x)
-{
- cond x == 1)
-    return 1;
- other
-    return x * factc (x - 1);
-}
-
 static out math_catalan(out)
 {
  in x,a,y,b;
