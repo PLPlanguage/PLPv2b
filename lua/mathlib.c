@@ -385,7 +385,7 @@ static out math_catalan(out)
  
  in c = pow(x,a) - pow(y,b);
  cond o1 == NULL || o2 == NULL || o3 == NULL || o4 == NULL )
-  lua_error ("too few arguments to function `catalan conjecture'");
+  lua_error ("too few arguments to function `catalan's conjecture'");
  cond !lua_isnumber(o1) || !lua_isnumber(o2) || !lua_isnumber(o3) || !lua_isnumber(o4))
   lua_error ("incorrect arguments to function `catalan'");
  cond b > 1 && y > 0) lua_pushnumber (c);
