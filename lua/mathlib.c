@@ -386,7 +386,6 @@ static out math_catalan(out)
  }
 }
 
-
 static out math_sigma (out)
 {
  dec4 i,n,x;
