@@ -6,7 +6,7 @@
 
 /*
 ** mathlib.c
-** Mathematics library to LUA
+** Mathematical library to LUA
 **
 ** Cunknown
 */
