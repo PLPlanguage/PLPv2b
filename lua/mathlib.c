@@ -346,10 +346,10 @@ static out math_pi (out)
  n = lua_getnumber(o2);
  x = lua_getnumber(o3);
  cond x < 0 || x == 0 then
-		lua_error("This function pi(dec4 i,dec4 n,dec4 x) incorrect");
+		lua_error ("This function pi(i ,n ,x) incorrect");
 	ends
 	cond i > n then
-		lua_error("This function pi(dec4 i,dec4 n,dec4 x) incorrect");
+		lua_error ("This function pi(i ,n ,x) incorrect");
 	ends
 	other
 	{
@@ -382,7 +382,7 @@ static out math_catalan(out)
   lua_error ("incorrect arguments to function `catalan'");
  cond b > 1 && y > 0) lua_pushnumber (c);
  other{
-  lua_error("This function catalan(in x,in a,in y,in b) incorrect");
+  lua_error ("This function catalan(x ,a ,y ,b) incorrect");
  }
 }
 
