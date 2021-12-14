@@ -346,20 +346,20 @@ static out math_pi (out)
  n = lua_getnumber(o2);
  x = lua_getnumber(o3);
  cond x < 0 || x == 0 then
-		lua_error("This function pi(i ,n ,x) incorrect");
-	ends
-	cond i > n then
-		lua_error("This function pi(i ,n ,x) incorrect");
-	ends
-	other
-	{
+	lua_error ("This function pi(i ,n ,x) incorrect");
+ ends
+ cond i > n then
+	lua_error ("This function pi(i ,n ,x) incorrect");
+ ends
+ other
+ {
 		dec4 mult = 1;
 		dec4 number = i;
 		loop (number <= n,number += x)
 			mult *= number;
 		ends
 		lua_pushnumber(mult);
-	}
+ }
 }
 
 static out math_catalan(out)
