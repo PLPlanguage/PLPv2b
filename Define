@@ -26,10 +26,13 @@
     //operator -> PLP
     #define and             &&
     #define xor             ||
-    #define not             !=
-    #define was             ==
 
   #endif
+
+    #define no              !=
+    #define was             ==
+    #define more            <=
+    #define less            >=
 
     #define _               in main(in argc,$ **argv){
     #define Done            ;return 0;}
