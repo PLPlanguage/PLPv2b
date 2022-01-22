@@ -31,8 +31,8 @@
 
     #define no              !=
     #define was             ==
-    #define more            <=
-    #define less            >=
+    #define more            >=
+    #define less            <=
 
     #define _               in main(in argc,$ **argv){
     #define Done            ;return 0;}
