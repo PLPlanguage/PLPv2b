@@ -47,7 +47,7 @@
     #define cond            if(
     #define when            while(
     #define loop(e,i)       for(;e;i){
-    #define foreach(a,b,...) for(int a=0;a<(sizeof(b)/sizeof(b[0]));a++){ \
+    #define loopeach(a,b,...) for(int a=0;a<(sizeof(b)/sizeof(b[0]));a++){ \
 	   __VA_ARGS__; \
 	   }
     #define lambda(is,...) \
