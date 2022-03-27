@@ -150,6 +150,14 @@ in matrix(in row, in col, in *mat)
     return 0;
 }
 
+in ack(in m, in n)
+{
+    cond m == 0 then return n+1;
+    ends other cond (m > 0) && (n == 0) then return ack(m-1, 1);
+    ends other cond (m > 0) && (n > 0) then return ack(m-1, ack(m, n-1));
+    ends
+}
+
 in mod (in d1, in d2)
 {
     	return d1 - floor(d1 / d2) * d2;
