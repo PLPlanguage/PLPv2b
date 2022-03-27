@@ -46,8 +46,7 @@
     #define ends    	    }
     #define cond            if(
     #define when            while(
-    #define loop(e,...)       for(;e;){ \
-    	__VA_ARGS__; 
+    #define loop(e,i)       for(;e;i){
     #define loopeach(a,b,...) for(int a=0;a<(sizeof(b)/sizeof(b[0]));a++){ \
 	   __VA_ARGS__; \
 	   }
