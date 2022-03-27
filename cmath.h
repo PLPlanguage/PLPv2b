@@ -42,6 +42,7 @@ dec4 derivative     (dec4 x, dec4 n);
 dec4 pi		    (dec4 i,dec4 n,dec4 x);
 dec4 sigma	    (dec4 i,dec4 n,dec4 x);
 in   matrix	    (in row,in column,in *mat);
+in   ack	    (in m, in n);
 in   mod	    (in d1,in d2);
 in   gcd	    (in a,in b);
 in   lcm	    (in a,in b);
