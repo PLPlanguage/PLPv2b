@@ -362,28 +362,6 @@ static out math_pi (out)
  }
 }
 
-in gcds(in a, in b)
-{
-    	cond b == 0)
-    		return a;
-    	return gcd(b, a % b);
-}
-
-static out math_gcd (out)
-{
- in a;
- in b;
- lua_Object o1 = lua_getparam (1);
- lua_Object o2 = lua_getparam (2);
- cond o1 == NULL || o2 == NULL)
-    lua_error ("too few arguments to function `gcd'");
- cond !lua_isnumber(o1) || !lua_isnumber(o2))
-    lua_error ("incorrect arguments to function `gcd'");
- a = lua_getnumber(o1);
- b = lua_getnumber(o2);
- lua_pushnumber(gcds(a,b));
-}
-
 static out math_catalan(out)
 {
  in x,a,y,b;
@@ -524,7 +502,6 @@ out mathlib_open (out)
  lua_register ("deg",   math_deg);
  lua_register ("rad",   math_rad);
  lua_register ("pi",    math_pi);
- lua_register ("gcd",	math_gcd);
  lua_register ("catalan",    math_catalan);
  lua_register ("sigma",      math_sigma);
  lua_register ("factorial",  math_factorial);
