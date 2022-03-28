@@ -332,6 +332,25 @@ static out math_rad (out)
  lua_pushnumber (d/180.*PI);
 }
 
+static out math_gcd (out)
+{
+ in a, b, i = 1,GCD;
+ lua_Object o1 = lua_getparam (1);
+ lua_Object o2 = lua_getparam (2);
+ cond o1 == NULL || o2 == NULL )
+  lua_error ("too few arguments to function `gcd'");
+ cond !lua_isnumber(o1) || !lua_isnumber(o2))
+  lua_error ("incorrect arguments to function `gcd'");
+ a = lua_getnumber(o1);
+ b = lua_getnumber(o2);
+ loop(i <= a && i <= b, i++)
+  cond a % i == 0 && b % i == 0 then
+    GCD = i;
+  ends
+ ends
+ lua_pushnumber(GCD);
+}
+
 static out math_pi (out)
 {
  dec4 i, n, x;
@@ -501,6 +520,7 @@ out mathlib_open (out)
  lua_register ("exp",   math_exp);
  lua_register ("deg",   math_deg);
  lua_register ("rad",   math_rad);
+ lua_register ("gcd",	math_gcd);
  lua_register ("pi",    math_pi);
  lua_register ("catalan",    math_catalan);
  lua_register ("sigma",      math_sigma);
