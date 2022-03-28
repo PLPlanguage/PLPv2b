@@ -362,7 +362,7 @@ static out math_pi (out)
  }
 }
 
-in gcd(in a, in b)
+in gcds(in a, in b)
 {
     	cond b == 0)
     		return a;
@@ -381,7 +381,7 @@ static out math_gcd (out)
     lua_error ("incorrect arguments to function `gcd'");
  a = lua_getnumber(o1);
  b = lua_getnumber(o2);
- lua_pushnumber(gcd(a,b));
+ lua_pushnumber(gcds(a,b));
 }
 
 static out math_catalan(out)
