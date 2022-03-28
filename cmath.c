@@ -156,6 +156,7 @@ in ack(in m, in n)
     ends other cond (m > 0) && (n == 0) then return ack(m-1, 1);
     ends other cond (m > 0) && (n > 0) then return ack(m-1, ack(m, n-1));
     ends
+    return 0;
 }
 
 in mod (in d1, in d2)
