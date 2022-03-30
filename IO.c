@@ -14,31 +14,33 @@ in plp_error($ *s)
 }
 
 // Input and Ouput PLP Compiler
-in inout($ * a)
-{
-    FILE * fp = fopen(a, "r");
-    FILE * fp2 = fopen("/tmp/cplp", "wr");
+in inout($ * a){
+    FILE * fp = fopen(a,"r");
+    FILE * fp2 = fopen("/tmp/cplp","wr");
     cond fp == NULL || fp2 == NULL then
     	lua_error("NILL");
     	remove("/tmp/cplp");
     	exit(0);
     ends
      $ c[256];
-    fputs("#include \"import\"\n",fp2);
+    fputs("#include \"../PLPv2b/import\"\n",fp2);
      in cs;
      $ ch[2] = "//";
      in i = atoi(ch);
+     $ ch2[] = { 'f', 'u', 'n', 'c', 't', 'i', 'o', 'n', '(' };
+     $ ch3[3] = ";}";
     when !feof(fp) then
-    	cs = getc(fp);
+    	cs= getc(fp);
     	cond cs == EOF) break;
-    	 cond cs == ':' then ungetc(';', fp); cs++; ends;
-          cond cs == ' ' || cs == '\t') ungetc(';', fp);
-           cond cs == '-' then ungetc(i, fp); continue; ends
-            cond cs == '.' then ungetc(')', fp); continue; ends
-             cond cs == '|') ungetc('#', fp);
-             
-           	 other ungetc(cs, fp);
-             cond fgets(c, 256, fp) != NULL) fputs(c, fp2);
+    	 cond cs == ':' then ungetc(';',fp); cs++; ends;
+          cond cs == ' ' || cs == '\t') ungetc(';',fp);
+           cond cs == '(' then fputs(ch2, fp2); continue; ends
+            cond cs == ')' then fputs(ch3, fp2); continue; ends
+	     cond cs == '-' then ungetc(i,fp); continue; ends
+              cond cs == '|') ungetc('#',fp);
+
+           	 other ungetc(cs,fp);
+             cond fgets(c,256,fp) != NULL) fputs(c,fp2);
             	other break;
     ends
     fclose(fp);
