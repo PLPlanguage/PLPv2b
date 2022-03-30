@@ -23,7 +23,7 @@ in inout($ * a){
     	exit(0);
     ends
      $ c[256];
-    fputs("#include \"../PLPv2b/import\"\n",fp2);
+    fputs("#include \"import\"\n",fp2);
      in cs;
      $ ch[2] = "//";
      in i = atoi(ch);
