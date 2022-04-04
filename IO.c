@@ -27,7 +27,7 @@ in inout($ * a){
      in cs;
      $ ch[2] = "//";
      in i = atoi(ch);
-     $ ch2[] = { 'f', 'u', 'n', 'c', 't', 'i', 'o', 'n', '(' };
+     $ ch2[] = { 'f', 'u', 'n', 'c', 't', 'i', 'o', 'n', '(', '\0' };
      $ ch3[3] = ";}";
     when !feof(fp) then
     	cs= getc(fp);
