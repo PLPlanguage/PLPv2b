@@ -3,6 +3,7 @@
 PLP Project Programming Language
 
 Programming Language for projects and computer science and research on computer and programming.
+The first programming language that compiler-interpreter(CI)
 # What is PLP Language?
 PLP is a programming language written in C / C ++ and interacts with C.<br/>
 PLP means Project Programming Language, the first beta version of which was released in 2019<br/>
