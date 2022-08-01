@@ -88,7 +88,7 @@ Shell(i,"l:c:o:d:i:h")
             print(" Help");
 	    print("\tPLP [function filename]\n");
             print("\t-c Execute a PLP file\n");
-            print("\t-l Execute a luaPLP file\n");
+            print("\t-l Execute a interpreter file\n");
 	    print("\t-d Print a script with the argument\n"); 
             print("\t-o Rename the executed PLP file\n");
 	    print("\t-i Writing definitions, for example [-i 'Radian 1']\n");
@@ -162,7 +162,7 @@ ends
             remove("/tmp/cplp.cpp");
             remove("/tmp/aout");
         ends
-        other cond indexof(buffer,"lua\n",0) then
+        other cond indexof(buffer,"interpreter\n",0) then
             $ s[256];
             print("This is hybrid PLP & lua language,\n Please filename function: luaPLP [namefunctionfile]\n");
             gets(s);
@@ -178,7 +178,7 @@ ends
         print(" \tPLP|>execute('echo Hello World')\n");
         print("   [compile] \tCommand execute a PLP file\n");
         print("   [compile c] \tCommand execute a PLP file (advanced)\n");
-        print("   [lua] \tCommand execute a LUA file\n");
+        print("   [interpreter] \tCommand execute a interpreter file\n");
         ends
         other
 	{
