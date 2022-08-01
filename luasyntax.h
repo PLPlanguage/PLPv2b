@@ -9,8 +9,8 @@
 
 #include "Define"
 #include "Type"
-#include "lua/lua.h"
-#include "lua/lualib.h" 
+#include "interpreter/lua.h"
+#include "interpreter/lualib.h" 
 
     #define errorfunction   lua_errorfunction
     #define dofile          lua_dofile
