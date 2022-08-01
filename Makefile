@@ -8,7 +8,7 @@ OBJ= Compiler.o IO.o cmath.o luasyntax.o lib.o cs50.o
 
 INTERPRETER = interpreter
 
-OBJS= $(INTERPRETER)/hash.o $(INTERPRETER)/inout.o $(INTERPRETER)/lex_yy.o $(INTERPRETER)/opcode.o $(INTERPRETER)/table.o $(INTERPRETER)/y_tab.o $(INTERPRETER)/iolib.o $(INTERPRETER)/mathlib.o $(INTERPRETER)/strlib.o $(INTERPRETER)/lua.o
+OBJS= $(INTERPRETER)/hash.o $(INTERPRETER)/inout.o $(INTERPRETER)/lex_yy.o $(INTERPRETER)/opcode.o $(INTERPRETER)/table.o $(INTERPRETER)/y_tab.o $(INTERPRETER)/iolib.o $(INTERPRETER)/mathlib.o $(INTERPRETER)/strlib.o
 
 BIN= /usr/bin
 
