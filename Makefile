@@ -6,9 +6,9 @@ CFLAGS= -O2 -I. -Wall
 
 OBJ= Compiler.o IO.o cmath.o luasyntax.o lib.o cs50.o
 
-INTERPRETER = interpreter
+LUA= lua
 
-OBJS= $(INTERPRETER)/hash.o $(INTERPRETER)/inout.o $(INTERPRETER)/lex_yy.o $(INTERPRETER)/opcode.o $(INTERPRETER)/table.o $(INTERPRETER)/y_tab.o $(INTERPRETER)/iolib.o $(INTERPRETER)/mathlib.o $(INTERPRETER)/strlib.o
+OBJS= $(LUA)/hash.o $(LUA)/inout.o $(LUA)/lex_yy.o $(LUA)/opcode.o $(LUA)/table.o $(LUA)/y_tab.o $(LUA)/iolib.o $(LUA)/mathlib.o $(LUA)/strlib.o
 
 BIN= /usr/bin
 
@@ -19,20 +19,20 @@ o= ./out.plp
 all:	$P
 	
 $P:	$(OBJ)
-	@cd $(INTERPRETER) && $(MAKE)
+	@cd $(LUA) && $(MAKE)
 	$(CC) -o $@ $(OBJ) $(OBJS) -lm
 	
 install: 
 	cp $(CP) $(BIN)
-	cp -r $(INTERPRETER) $(BIN)
+	cp -r $(LUA) $(BIN)
 	@cd $(BIN) && $(MAKE)
 
 deinstall:
-	@cd $(BIN) && rm -rf $(CP)  $(OBJ) $(INTERPRETER) $P
+	@cd $(BIN) && rm -rf $(CP)  $(OBJ) $(LUA) $P
 	@cd $(BIN) && rm -rf $(TAR)
 
 clean:
-	rm -f $(OBJ) $(OBJS) $(INTERPRETER)/lua$P $P core core.*
+	rm -f $(OBJ) $(LUA)/$(OBJS) $(LUA)/$(LUA)$P $P core core.*
 
 test:
 	./$P -c $T
