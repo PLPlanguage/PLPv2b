@@ -106,7 +106,7 @@ in cpp(out)
     strcpy(str5, "c++ ");
     FILE * aout = fopen("/tmp/aout", "r");
     cond aout != NULL)
-    strcat(str3, "/tmp/aout cmath.o IO.o luasyntax.o lib.o cs50.o lua/hash.o lua/inout.o lua/lex_yy.o lua/opcode.o lua/table.o lua/y_tab.o lua/iolib.o lua/mathlib.o lua/strlib.o -lm");
+    strcat(str5, "/tmp/aout cmath.o IO.o luasyntax.o lib.o cs50.o lua/hash.o lua/inout.o lua/lex_yy.o lua/opcode.o lua/table.o lua/y_tab.o lua/iolib.o lua/mathlib.o lua/strlib.o -lm");
     other 
     {
     plp_error("NULL");
