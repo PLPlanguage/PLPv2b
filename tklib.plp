@@ -12,13 +12,13 @@ IMPORT
 FILE * tk;
 
 function (out reset)
-	tk = fopen("Tk.tcl", "w+");
+	file(tk, "Tk.tcl", "w+");
 	fputs("", tk);
 	fclose(tk);
 ends
 
 function (out exec, fix $ * system)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("exec ", tk);
 	fputs(system, tk);
 	fputs("\n", tk);
@@ -26,7 +26,7 @@ function (out exec, fix $ * system)
 ends
 
 function (out proc, fix $ * func, fix $ * commands)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("proc ", tk);
 	fputs(func, tk);
 	fputs(" {\n", tk);
@@ -36,7 +36,7 @@ function (out proc, fix $ * func, fix $ * commands)
 ends
 
 function (in title, fix $ * system)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("wm title . \"", tk);
 	fputs(system, tk);
 	fputs("\"\n", tk);
@@ -45,7 +45,7 @@ function (in title, fix $ * system)
 ends
 
 function (in icon, fix $ * system)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("wm iconbitmap . ", tk);
 	fputs(system, tk);
 	fputs("\n", tk);
@@ -54,7 +54,7 @@ function (in icon, fix $ * system)
 ends
 
 function (in closewindow, fix $ * system)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("wm protocol . WM_DELETE_WINDOW ", tk);
 	fputs(system, tk);
 	fputs("\n", tk);
@@ -64,7 +64,7 @@ ends
 
 function (in canvas, fix $ * id, fix $ * background, in width, in height)
 	$ buffer[256];
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("canvas ", tk);
 	fputs(id, tk);
 	fputs(" -background ", tk);
@@ -83,7 +83,7 @@ function (in canvas, fix $ * id, fix $ * background, in width, in height)
 ends
 
 function (in id, fix $ * id, fix $ * system)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs(id, tk);
 	fputs(" ", tk);
 	fputs(system, tk);
@@ -93,7 +93,7 @@ function (in id, fix $ * id, fix $ * system)
 ends
 
 function (in button, fix $ * id, fix $ * command, in padx, in pady, fix $ * txt)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	$ buffer[256];
 	fputs("button ", tk);
 	fputs(id, tk);
@@ -115,7 +115,7 @@ function (in button, fix $ * id, fix $ * command, in padx, in pady, fix $ * txt)
 ends
 
 function (in messageBox, fix $ * type, fix $ * icon, fix $ * title, fix $ * message)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("tk_messageBox -type ", tk);
 	fputs(type, tk);
 	fputs(" -icon ", tk);
@@ -129,8 +129,32 @@ function (in messageBox, fix $ * type, fix $ * icon, fix $ * title, fix $ * mess
 	return 0;
 ends
 
+function (in image, fix $ * id, fix $ * type, fix $ * filename, in width, in height)
+	file(tk, "Tk.tcl", "a+");
+	$ buffer[256];
+	fputs("image create photo ", tk);
+	fputs(type, tk);
+	fputs(" -file ", tk);
+	fputs(filename, tk);
+	fputs(" -width ", tk);
+	itoa(width, buffer, 10);
+	fputs(buffer, tk);
+	fputs(" -height ", tk);
+	itoa(height, buffer, 10);
+	fputs(buffer, tk);
+	fputs("\npack [label ", tk);
+	fputs(id, tk);
+	fputs("]\n", tk);
+	fputs(id, tk);
+	fputs(" configure -image ", tk);
+	fputs(type, tk);
+	fputs("\n", tk);
+	fclose(tk);
+	return 0;
+ends
+
 function (in entry, fix $ * id, fix $ * background, fix $ * foreground, fix $ * textvar, fix $ * width, fix $ * justify)
-	tk = fopen("Tk.tcl", "a+");
+	file(tk, "Tk.tcl", "a+");
 	fputs("entry ", tk);
 	fputs(id, tk);
 	fputs(" -background ", tk);
