@@ -28,6 +28,7 @@ typedef string              TEXT;
 typedef ofstream            writefs;
 typedef ifstream            opens;
   #endif
+#define PLP(a) _ a Done
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
