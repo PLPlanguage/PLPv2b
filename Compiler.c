@@ -38,10 +38,10 @@ Shell(i,"l:c:o:d:i:h")
             a = getshell;
             print("Compiling.. [%s]\n",a);
             inout(a);
-            rename("/tmp/cplp","/tmp/cplp.cpp");
+            rename("cplp","cplp.cpp");
                 cpp();
-            remove("/tmp/cplp.cpp");
-            remove("/tmp/aout");
+            remove("cplp.cpp");
+            remove("aout");
             exit(0);
             return 0;
                   break;
@@ -61,10 +61,10 @@ Shell(i,"l:c:o:d:i:h")
         a = getshell;
       // Detect codes and execute it.
 	    argvinout(argv[2]);
-        rename("/tmp/cplp","/tmp/cplp.cpp");
+        rename("cplp","cplp.cpp");
          cpp();
-        remove("/tmp/cplp.cpp");
-        remove("/tmp/aout");
+        remove("cplp.cpp");
+        remove("aout");
         #ifdef __CYGWIN__
         system("./a.exe");
 	print(nline);
@@ -130,10 +130,10 @@ Shell(i,"l:c:o:d:i:h")
  loop (c < argc, c++)
                 print("Compiling.. [%s]\n",argv[c]);
                 inout(argv[c]);
-                rename("/tmp/cplp","/tmp/cplp.c");
+                rename("cplp","cplp.c");
                 cc();
-                remove("/tmp/cplp.c");
-                remove("/tmp/aout");
+                remove("cplp.c");
+                remove("aout");
                 exit(0);
                 return 0;
 ends
@@ -148,19 +148,19 @@ ends
             gets(buffer);
             inout(buffer);
             print("Compiling.. [%s]\n",buffer);
-            rename("/tmp/cplp","/tmp/cplp.c");
+            rename("cplp","cplp.c");
             cc();
-            remove("/tmp/aout");
-            remove("/tmp/cplp.c");
+            remove("aout");
+            remove("cplp.c");
         ends
         other cond indexof(buffer,"compile c\n",0) then
             gets(buffer);
             print("Compiling.. [%s]\n",buffer);
             inout(buffer);
-            rename("/tmp/cplp","/tmp/cplp.cpp");
+            rename("cplp","cplp.cpp");
                 cpp();
-            remove("/tmp/cplp.cpp");
-            remove("/tmp/aout");
+            remove("cplp.cpp");
+            remove("aout");
         ends
         other cond indexof(buffer,"interpreter\n",0) then
             $ s[256];
