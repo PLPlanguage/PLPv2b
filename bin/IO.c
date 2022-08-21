@@ -7,10 +7,10 @@ in plp_error($ *s){
 
 in inout($ * a){
     FILE * fp = fopen(a,"r");
-    FILE * fp2 = fopen("/tmp/cplp","wr");
+    FILE * fp2 = fopen("cplp","wr");
     cond fp == NULL || fp2 == NULL){
     	lua_error("NILL");
-    	remove("/tmp/cplp");
+    	remove("cplp");
     	exit(0);
     }
      $ c[256];
@@ -44,7 +44,7 @@ in inout($ * a){
 }
 
 in argvinout($ * s){
-    FILE * fp2 = fopen("/tmp/cplp","wr");
+    FILE * fp2 = fopen("cplp","wr");
         fputs("#include \"/usr/bin/import\"\n#line 1\n _ ",fp2);
         fputs(s,fp2);
      	fputs("\nDone",fp2);
@@ -66,18 +66,18 @@ in defkey($ * i){
 in cc(out){
      $ str2[512];
     strcpy(str2,"cc ");
-    strcat(str2,"/tmp/cplp");
+    strcat(str2,"cplp");
     strcat(str2,".c -O2 -I. -c");
-    strcat(str2," -o /tmp/aout");
+    strcat(str2," -o aout");
     executel(str2);
      $ str3[512]; 
     strcpy(str3,"c++ ");
-    FILE * aout = fopen("/tmp/aout","r");
+    FILE * aout = fopen("aout","r");
     cond aout != NULL)
-    strcat(str3,"/tmp/aout /usr/bin/cmath.o /usr/bin/IO.o /usr/bin/luasyntax.o /usr/bin/lib.o /usr/bin/cs50.o /usr/bin/lua/hash.o /usr/bin/lua/inout.o /usr/bin/lua/lex_yy.o /usr/bin/lua/opcode.o /usr/bin/lua/table.o /usr/bin/lua/y_tab.o /usr/bin/lua/iolib.o /usr/bin/lua/mathlib.o /usr/bin/lua/strlib.o -lm");
+    strcat(str3,"aout /usr/bin/cmath.o /usr/bin/IO.o /usr/bin/luasyntax.o /usr/bin/lib.o /usr/bin/cs50.o /usr/bin/lua/hash.o /usr/bin/lua/inout.o /usr/bin/lua/lex_yy.o /usr/bin/lua/opcode.o /usr/bin/lua/table.o /usr/bin/lua/y_tab.o /usr/bin/lua/iolib.o /usr/bin/lua/mathlib.o /usr/bin/lua/strlib.o -lm");
     other {
     plp_error("NULL");
-    remove("/tmp/cplp.c");
+    remove("cplp.c");
     exit(0);
     }
     return executel(str3);
@@ -86,18 +86,18 @@ in cc(out){
 in cpp(out){
      $ str4[512];
     strcpy(str4,"c++ ");
-    strcat(str4,"/tmp/cplp");
+    strcat(str4,"cplp");
     strcat(str4,".cpp -O2 -I. -c");
-    strcat(str4," -o /tmp/aout");
+    strcat(str4," -o aout");
     executel(str4);
      $ str5[512]; 
     strcpy(str5,"c++ ");
-    FILE * aout = fopen("/tmp/aout","r");
+    FILE * aout = fopen("aout","r");
     cond aout != NULL)
-    strcat(str5,"/tmp/aout /usr/bin/cmath.o /usr/bin/IO.o /usr/bin/luasyntax.o /usr/bin/lib.o /usr/bin/cs50.o /usr/bin/lua/hash.o /usr/bin/lua/inout.o /usr/bin/lua/lex_yy.o /usr/bin/lua/opcode.o /usr/bin/lua/table.o /usr/bin/lua/y_tab.o /usr/bin/lua/iolib.o /usr/bin/lua/mathlib.o /usr/bin/lua/strlib.o -lm");
+    strcat(str5,"aout /usr/bin/cmath.o /usr/bin/IO.o /usr/bin/luasyntax.o /usr/bin/lib.o /usr/bin/cs50.o /usr/bin/lua/hash.o /usr/bin/lua/inout.o /usr/bin/lua/lex_yy.o /usr/bin/lua/opcode.o /usr/bin/lua/table.o /usr/bin/lua/y_tab.o /usr/bin/lua/iolib.o /usr/bin/lua/mathlib.o /usr/bin/lua/strlib.o -lm");
     other {
     plp_error("NULL");
-    remove("/tmp/cplp.cpp");
+    remove("cplp.cpp");
     exit(0);
     }
     return executel(str5);
