@@ -16,10 +16,10 @@ in plp_error($ *s)
 // Input and Ouput PLP Compiler
 in inout($ * a){
     FILE * fp = fopen(a,"r");
-    FILE * fp2 = fopen("/tmp/cplp","wr");
+    FILE * fp2 = fopen("cplp","wr");
     cond fp == NULL || fp2 == NULL then
     	lua_error("NILL");
-    	remove("/tmp/cplp");
+    	remove("cplp");
     	exit(0);
     ends
      $ c[256];
@@ -54,7 +54,7 @@ in inout($ * a){
 
 in argvinout($ * s)
 {
-    FILE * fp2 = fopen("/tmp/cplp", "wr");
+    FILE * fp2 = fopen("cplp", "wr");
         fputs("#include \"import\"\n _ ", fp2);
         fputs(s, fp2);
      	fputs("\nDone", fp2);
@@ -78,19 +78,19 @@ in cc(out)
 {
      $ str2[512];
     strcpy(str2, "cc ");
-    strcat(str2, "/tmp/cplp");
+    strcat(str2, "cplp");
     strcat(str2, ".c -O2 -I. -c");
-    strcat(str2, " -o /tmp/aout");
+    strcat(str2, " -o aout");
     executel(str2);
      $ str3[512]; 
     strcpy(str3, "c++ ");
-    FILE * aout = fopen("/tmp/aout", "r");
+    FILE * aout = fopen("aout", "r");
     cond aout != NULL)
-    strcat(str3, "/tmp/aout cmath.o IO.o luasyntax.o lib.o cs50.o lua/hash.o lua/inout.o lua/lex_yy.o lua/opcode.o lua/table.o lua/y_tab.o lua/iolib.o lua/mathlib.o lua/strlib.o -lm");
+    strcat(str3, "aout cmath.o IO.o luasyntax.o lib.o cs50.o lua/hash.o lua/inout.o lua/lex_yy.o lua/opcode.o lua/table.o lua/y_tab.o lua/iolib.o lua/mathlib.o lua/strlib.o -lm");
     other 
     {
     plp_error("NULL");
-    remove("/tmp/cplp.c");
+    remove("cplp.c");
     exit(0);
     }
     return executel(str3);
@@ -100,19 +100,19 @@ in cpp(out)
 {
      $ str4[512];
     strcpy(str4, "c++ ");
-    strcat(str4, "/tmp/cplp");
+    strcat(str4, "cplp");
     strcat(str4, ".cpp -O2 -I. -c");
-    strcat(str4, " -o /tmp/aout");
+    strcat(str4, " -o aout");
     executel(str4);
      $ str5[512]; 
     strcpy(str5, "c++ ");
-    FILE * aout = fopen("/tmp/aout", "r");
+    FILE * aout = fopen("aout", "r");
     cond aout != NULL)
-    strcat(str5, "/tmp/aout cmath.o IO.o luasyntax.o lib.o cs50.o lua/hash.o lua/inout.o lua/lex_yy.o lua/opcode.o lua/table.o lua/y_tab.o lua/iolib.o lua/mathlib.o lua/strlib.o -lm");
+    strcat(str5, "aout cmath.o IO.o luasyntax.o lib.o cs50.o lua/hash.o lua/inout.o lua/lex_yy.o lua/opcode.o lua/table.o lua/y_tab.o lua/iolib.o lua/mathlib.o lua/strlib.o -lm");
     other 
     {
     plp_error("NULL");
-    remove("/tmp/cplp.cpp");
+    remove("cplp.cpp");
     exit(0);
     }
     return executel(str5);
