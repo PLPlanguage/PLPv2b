@@ -19,18 +19,25 @@ in inout($ * a){
     	exit(0);
     ends
      $ c[256];
-    fputs("#include \"../PLPv2b/import\"\n",fp2);
+    fputs("#include \"import\"\n",fp2);
      in cs;
      $ ch[2] = "//";
      in i = atoi(ch);
+     $ ch2[] = { 'f', 'u', 'n', 'c', 't', 'i', 'o', 'n', '(', '\0' };
+     $ ch3[3] = ";}";
+     $ ch4[] = { '#', 'i', 'n', 'c', 'l', 'u', 'd', 'e', ' ', '\0' };
     when !feof(fp) then
     	cs= getc(fp);
     	cond cs == EOF) break;
     	 cond cs == ':' then ungetc(';',fp); cs++; ends;
           cond cs == ' ' || cs == '\t') ungetc(';',fp);
-	   cond cs == '-' then ungetc(i,fp); continue; ends
-            cond cs == '.' then ungetc(')',fp); continue; ends
-             cond cs == '|') ungetc('#',fp);
+           cond cs == '(' then fputs(ch2, fp2); continue; ends
+            cond cs == ')' then fputs(ch3, fp2); continue; ends
+	     cond cs == '>' then fputs(ch4, fp2); continue; ends
+	      cond cs == '[' then fputs("{", fp2); continue; ends
+	       cond cs == ']' then fputs(";};", fp2); continue; ends
+	        cond cs == '-' then ungetc(i,fp); continue; ends
+              	 cond cs == '|') ungetc('#',fp);
 
            	 other ungetc(cs,fp);
              cond fgets(c,256,fp) != NULL) fputs(c,fp2);
