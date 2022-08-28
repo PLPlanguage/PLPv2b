@@ -73,6 +73,13 @@ in cc(out){
     strcpy(str2,"cc ");
     strcat(str2,"/tmp/cplp");
     strcat(str2,".c -O2 -I. -c");
+    #ifdef __linux__
+    	#ifdef __GNUC__
+    	strcat(str2, " -lpthread");
+    	#elif __clang__
+    	strcat(str2, " -pthread");
+    	#endif
+    #endif
     strcat(str2," -o /tmp/aout");
     executel(str2);
      $ str3[512];
@@ -94,7 +101,11 @@ in cpp(out){
     strcat(str4,"/tmp/cplp");
     strcat(str4,".cpp -O2 -I. -c");
     #ifdef __linux__
-    strcat(str4," -lpthread");
+    	#ifdef __GNUC__
+    	strcat(str4, " -lpthread");
+    	#elif __clang__
+    	strcat(str4, " -pthread");
+    	#endif
     #endif
     strcat(str4," -o /tmp/aout");
     executel(str4);
