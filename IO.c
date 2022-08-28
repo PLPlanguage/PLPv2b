@@ -106,7 +106,7 @@ in cpp(out)
     strcat(str4, "/tmp/cplp");
     strcat(str4, ".cpp -O2 -I. -c");
     #ifdef __linux__
-    strcat(str2, " -lpthread");
+    strcat(str4, " -lpthread");
     #endif
     strcat(str4, " -o /tmp/aout");
     executel(str4);
