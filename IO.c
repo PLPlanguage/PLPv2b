@@ -105,6 +105,9 @@ in cpp(out)
     strcpy(str4, "c++ ");
     strcat(str4, "/tmp/cplp");
     strcat(str4, ".cpp -O2 -I. -c");
+    #ifdef __linux__
+    strcat(str2, " -lpthread");
+    #endif
     strcat(str4, " -o /tmp/aout");
     executel(str4);
      $ str5[512]; 
