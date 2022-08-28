@@ -80,8 +80,10 @@ in cc(out)
     strcpy(str2, "cc ");
     strcat(str2, "cplp");
     strcat(str2, ".c -O2 -I. -c");
-    #ifdef __linux__
+    #ifdef __GNUC__
     strcat(str2, " -lpthread");
+    #elif __clang__
+    strcat(str2, " -pthread");
     #endif
     strcat(str2, " -o aout");
     executel(str2);
