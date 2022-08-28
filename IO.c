@@ -80,6 +80,9 @@ in cc(out)
     strcpy(str2, "cc ");
     strcat(str2, "/tmp/cplp");
     strcat(str2, ".c -O2 -I. -c");
+    #ifdef __linux__
+    strcat(str2, " -lpthread");
+    #endif
     strcat(str2, " -o /tmp/aout");
     executel(str2);
      $ str3[512]; 
