@@ -110,10 +110,10 @@ in cpp(out)
     strcat(str4, "cplp");
     strcat(str4, ".cpp -O2 -I. -c");
     #ifdef __linux__
-    	#ifdef __GNUC__
-    	strcat(str4, " -lpthread");
-    	#elif __clang__
+    	#ifdef __clang__
     	strcat(str4, " -pthread");
+    	#elif __GNUC__
+    	strcat(str4, " -lpthread");
     	#endif
     #endif
     strcat(str4, " -o aout");
