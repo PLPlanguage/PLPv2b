@@ -81,10 +81,10 @@ in cc(out)
     strcat(str2, "cplp");
     strcat(str2, ".c -O2 -I. -c");
     #ifdef __linux__
-    	#ifdef __GNUC__
-    	strcat(str2, " -lpthread");
-    	#elif __clang__
+    	#ifdef __clang__
     	strcat(str2, " -pthread");
+    	#elif __GNUC__
+    	strcat(str2, " -lpthread");
     	#endif
     #endif
     strcat(str2, " -o aout");
