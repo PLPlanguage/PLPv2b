@@ -80,6 +80,9 @@ in cc(out)
     strcpy(str2, "cc ");
     strcat(str2, "cplp");
     strcat(str2, ".c -O2 -I. -c");
+    #ifdef __linux__
+    strcat(str2, " -lpthread");
+    #endif
     strcat(str2, " -o aout");
     executel(str2);
      $ str3[512]; 
@@ -102,6 +105,9 @@ in cpp(out)
     strcpy(str4, "c++ ");
     strcat(str4, "cplp");
     strcat(str4, ".cpp -O2 -I. -c");
+    #ifdef __linux__
+    strcat(str4, " -lpthread");
+    #endif
     strcat(str4, " -o aout");
     executel(str4);
      $ str5[512]; 
