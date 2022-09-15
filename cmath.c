@@ -88,6 +88,11 @@ dec4 derivative (dec4 x, dec4 n)
 	return n * pow(x, n - 1);
 }
 
+dec8 integral (dec8 x, dec8 n)
+{
+    return ((pow(x, n + 1) / (n + 1)));
+}
+
 dec4 pi(dec4 i, dec4 n, dec4 x)
 {
 	cond x < 0 || x == 0 then
