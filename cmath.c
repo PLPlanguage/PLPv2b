@@ -109,8 +109,8 @@ dec4 pi(dec4 i, dec4 n, dec4 x)
 	{
 		dec4 mult = 1;
 		dec4 number = i;
-		loop (number <= n,number += x)
-			mult *= number;
+		loop (number <= n,number += 1)
+			mult *= number + (x - 1);
 		ends
 		return mult;
 	}
@@ -133,8 +133,8 @@ dec4 sigma(dec4 i, dec4 n, dec4 x)
 	{
 		dec4 sum = 0;
 		dec4 number = i;
-	    	loop (number <= n, number += x)
-			sum += number;
+	    	loop (number <= n, number += 1)
+			sum += number + (x - 1);
 		ends
 	    	return sum;
 	}
