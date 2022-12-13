@@ -181,6 +181,13 @@ in lcm(in a, in b)
 	return (a / gcd(a, b)) * b;
 }
 
+in fib (in n)
+{
+	cond n <= 1) 
+		return n;
+	return fib(n - 1) + fib(n - 2);
+}
+
 in fact (in x)
 {
     	cond x == 1)
