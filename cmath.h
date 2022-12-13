@@ -47,6 +47,8 @@ in   ack	    (in m, in n);
 in   mod	    (in d1,in d2);
 in   gcd	    (in a,in b);
 in   lcm	    (in a,in b);
+in   fib	    (in n);
+#define fibonacci(n) fib(n - 1)
 in   factorial      (in c);
 in   collatz        (in n);
 ULIN catalan        (UIN n);
