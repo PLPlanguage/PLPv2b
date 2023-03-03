@@ -30,7 +30,7 @@ in inout($ * a){
      $ ch2[] = { 'f', 'u', 'n', 'c', 't', 'i', 'o', 'n', '(', '\0' };
      $ ch3[3] = ";}";
      $ ch4[] = { '#', 'i', 'n', 'c', 'l', 'u', 'd', 'e', ' ', '\0' };
-     $ ch5[] = { 'D', 'o', 'n', 'e' };
+     $ ch5[] = { 'D', 'o', 'n', 'e', '\0' };
     when !feof(fp) then
     	cs= getc(fp);
     	cond cs == EOF) break;
