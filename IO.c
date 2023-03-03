@@ -30,6 +30,7 @@ in inout($ * a){
      $ ch2[] = { 'f', 'u', 'n', 'c', 't', 'i', 'o', 'n', '(', '\0' };
      $ ch3[3] = ";}";
      $ ch4[] = { '#', 'i', 'n', 'c', 'l', 'u', 'd', 'e', ' ', '\0' };
+     $ ch5[] = { 'D', 'o', 'n', 'e' };
     when !feof(fp) then
     	cs= getc(fp);
     	cond cs == EOF) break;
@@ -38,6 +39,7 @@ in inout($ * a){
            cond cs == '(' then fputs(ch2, fp2); continue; ends
             cond cs == ')' then fputs(ch3, fp2); continue; ends
 	     cond cs == '>' then fputs(ch4, fp2); continue; ends
+             cond cs == '.' then fputs(ch5, fp2); continue; ends
 	      cond cs == '[' then fputs("{", fp2); continue; ends
 	       cond cs == ']' then fputs(";};", fp2); continue; ends
 	        cond cs == '-' then ungetc(i,fp); continue; ends
