@@ -9,7 +9,7 @@
 // When Error in PLP Language
 in plp_error($ *s)
 {
-    return fprintf(stderr, red "Error PLP|>" set "%s;\n", s);
+    return fprintf(stderr, red "\aError PLP|>" set "%s;\n", s);
     exit(0);
 }
 
