@@ -17,3 +17,18 @@ In fact, the PLP language is supposed to become an abstract and fully functional
 _ print "hello world"
 Done
 ```
+# Installation
+- To install the PLP language, write the following command to download:
+```
+git clone https://github.com/plplanguage/PLPv2b
+```
+- Then enter the following commands to install this language:
+```
+$ cd PLPv2b
+$ make 
+$ sudo -s 
+```
+_(after then Enter your password account)_
+```
+$ make install
+```
