@@ -12,8 +12,6 @@ The purpose of building the PLP language is to enable all developers, computer s
 The PLP language uses a compiler to translate codes , is therefore fast and easy. PLP is also an intermediate level language (between high and low level programming languages).
 PLP language is the first compiler-interpreter (CI) programming language
 In fact, the PLP language is supposed to become an abstract and fully functional language for writing graphic commands, AI , OS design, building servers and websites, and ... so on.<br/>
-- - - - - - - -
-<a href="https://github.com/cunknowns/PLP-examples">PLP programming language examples </a>
 # Hello World in PLP Programming Language 
 Hello world in PLP language is in the form to under code:
 ``` 
@@ -26,6 +24,8 @@ print("hello world")
 ```
 In compiling, you must enter the command `PLP -l [filename]` 
 in the filename section, write the name of the file you created to write this code.
+- - - - - - - -
+--><a href="https://github.com/cunknowns/PLP-examples">Examples other codes of PLP programming language  </a>
 # Installation
 - To install the PLP language, write the following command to download:
 ```
