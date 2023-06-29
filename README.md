@@ -16,7 +16,7 @@ In fact, the PLP language is supposed to become an abstract and fully functional
 Hello world in PLP language is in the form to under code:
 ``` 
 _ print("hello world")
-Done
+.
 ```
 Of course, it can be written in other ways, for example:
 ```
