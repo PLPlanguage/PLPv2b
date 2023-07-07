@@ -8,11 +8,11 @@
 
 IMPORT
 
-#define white "white"
-#define red "red"
-#define yellow "yellow"
-#define green "green"
-#define blue "blue"
+#define WHITE "white"
+#define RED "red"
+#define YELLOW "yellow"
+#define GREEN "green"
+#define BLUE "blue"
 
 FILE * tk;
 
