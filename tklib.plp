@@ -70,7 +70,7 @@ ends
 function (in canvas, fix $ * id, fix $ * background, in width, in height)
 	$ buffer[256];
 	file(tk, "Tk.tcl", "a+");
-	fputs("canvas ", tk);
+	fputs("canvas .", tk);
 	fputs(id, tk);
 	fputs(" -background ", tk);
 	fputs(background,tk);
@@ -89,6 +89,7 @@ ends
 
 function (in id, fix $ * id, fix $ * system)
 	file(tk, "Tk.tcl", "a+");
+	fputs(".", tk);
 	fputs(id, tk);
 	fputs(" ", tk);
 	fputs(system, tk);
@@ -160,7 +161,7 @@ ends
 
 function (in entry, fix $ * id, fix $ * background, fix $ * foreground, fix $ * textvar, fix $ * width, fix $ * justify) 
 	file(tk, "Tk.tcl", "a+");
-	fputs("entry ", tk);
+	fputs("entry .", tk);
 	fputs(id, tk);
 	fputs(" -background ", tk);
 	fputs(background, tk);
