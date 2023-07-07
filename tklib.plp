@@ -100,7 +100,7 @@ ends
 function (in button, fix $ * id, fix $ * command, in padx, in pady, fix $ * txt)
 	file(tk, "Tk.tcl", "a+");
 	$ buffer[256];
-	fputs("button ", tk);
+	fputs("button .", tk);
 	fputs(id, tk);
 	fputs(" -command {", tk);
 	fputs(command, tk);
