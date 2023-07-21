@@ -118,3 +118,13 @@ in cpp(out){
     }
     return executel(str5);
 }
+
+function (out define, fix $ * report)
+        #ifndef __cplusplus
+        $ * str = malloc(sizeof($) * 256);
+        strcpy(str,"curl -R -O https://downloads.plplanguage.ir/report/");
+        strcat(str,report);
+        executel(str);
+        free(str);
+        #endif
+ends
