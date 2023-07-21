@@ -1,6 +1,6 @@
 P= PLP
 
-CP= bin/IO.c Compiler.c luasyntax.c luasyntax.h lib.c lib.h IO.h cmath.c cmath.h cs50.c cs50.h import Define Type fixconf Makefile
+CP= bin/IO.c bin/IO.h Compiler.c luasyntax.c luasyntax.h lib.c lib.h cmath.c cmath.h cs50.c cs50.h import Define Type fixconf Makefile
 
 CFLAGS= -O2 -I. -Wall
 
