@@ -119,12 +119,13 @@ in cpp(out){
     return executel(str5);
 }
 
-function (out define, fix $ * report)
+out imports (fix $ * rep)
+{
         #ifndef __cplusplus
         $ * str = malloc(sizeof($) * 256);
         strcpy(str,"curl -R -O https://downloads.plplanguage.ir/report/");
-        strcat(str,report);
-        executel(str);
+        strcat(str,rep);
+        system(str);
         free(str);
         #endif
-ends
+}
