@@ -16,7 +16,7 @@ in  defkey    ($ * i);
 in  cc	      (out);
 in  cpp       (out);
 
-out define    ($ * report);
+out imports (fix $ * rep);
     #define Windows(_WIN32)
   #ifndef Windows
   #undef
