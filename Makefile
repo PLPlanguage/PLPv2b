@@ -8,6 +8,7 @@ OBJ= Compiler.o IO.o cmath.o luasyntax.o lib.o cs50.o
 
 LUA= lua
 
+IO= IO.c IO.h
 OBJS= $(LUA)/hash.o $(LUA)/inout.o $(LUA)/lex_yy.o $(LUA)/opcode.o $(LUA)/table.o $(LUA)/y_tab.o $(LUA)/iolib.o $(LUA)/mathlib.o $(LUA)/strlib.o
 
 BIN= /usr/bin
@@ -28,7 +29,7 @@ install:
 	@cd $(BIN) && $(MAKE)
 
 deinstall:
-	@cd $(BIN) && rm -rf $(CP)  $(OBJ) $(LUA) $P
+	@cd $(BIN) && rm -rf $(CP)  $(OBJ) $(LUA) $(IO) $P
 	@cd $(BIN) && rm -rf $(TAR)
 
 clean:
