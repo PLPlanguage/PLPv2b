@@ -80,7 +80,7 @@ function (in canvas, fix $ * id, fix $ * background, in width, in height)
 	fputs(" -height ", tk);
 	itoa(height, buffer, 10);
 	fputs(buffer, tk);
-	fputs(" \npack ", tk);
+	fputs(" \npack .", tk);
 	fputs(id, tk);
 	fputs("\n", tk);
 	fclose(tk);
@@ -113,7 +113,7 @@ function (in button, fix $ * id, fix $ * command, in padx, in pady, fix $ * txt)
 	fputs(buffer, tk);
 	fputs(" -text \"", tk);
 	fputs(txt, tk);
-	fputs("\" \npack ", tk);
+	fputs("\" \npack .", tk);
 	fputs(id, tk);
 	fputs("\n", tk);
 	fclose(tk);
@@ -150,7 +150,7 @@ function (in image, fix $ * id, fix $ * type, fix $ * filename, in width, in hei
 	fputs(buffer, tk);
 	fputs("\npack [label ", tk);
 	fputs(id, tk);
-	fputs("]\n", tk);
+	fputs("]\n.", tk);
 	fputs(id, tk);
 	fputs(" configure -image ", tk);
 	fputs(type, tk);
@@ -173,7 +173,7 @@ function (in entry, fix $ * id, fix $ * background, fix $ * foreground, fix $ * 
 	fputs(" -justify ", tk);
 	fputs(justify, tk);
 	fputs("\n", tk);
-	fputs("pack ", tk);
+	fputs("pack .", tk);
 	fputs(id, tk);
 	fputs("\n", tk);
 	fputs("set i ", tk);
