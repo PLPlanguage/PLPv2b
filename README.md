@@ -41,3 +41,4 @@ _(after then Enter your password account)_
 ```
 $ make install
 ```
+ofcourse for windows os need installation <a href="https://www.cygwin.com/install.html">cygwin</a>.
