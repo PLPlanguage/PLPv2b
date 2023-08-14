@@ -2,7 +2,7 @@ P= PLP
 
 CP= bin/IO.c Compiler.c luasyntax.c luasyntax.h lib.c lib.h IO.h cmath.c cmath.h cs50.c cs50.h import Define Type fixconf Makefile
 
-CFLAGS= -O2 -I. -Wall
+CFLAGS= -std=c90 -O2 -I. -Wall
 
 OBJ= Compiler.o IO.o cmath.o luasyntax.o lib.o cs50.o
 
