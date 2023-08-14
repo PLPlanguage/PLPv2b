@@ -1,6 +1,6 @@
 OBJS= hash.o inout.o lex_yy.o opcode.o table.o y_tab.o lua.o iolib.o mathlib.o strlib.o
 
-CFLAGS= -O2 -I.
+CFLAGS= -std=c90 -O2 -I.
 
 T= luaPLP
 
