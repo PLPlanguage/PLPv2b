@@ -116,11 +116,6 @@ text get_text(va_list *args, fix $ *format, ...)
         // When functions in this library call get_string they will have
         // already stored their variadic parameters in a `va_list` and so they
         // just pass that in by pointer.
-        other
-        {
-            // Put a copy of argument list in ap so it is not consumed by vprintf
-            va_copy(ap, *args);
-        }
 
         // Print prompt
         vprintf(format, ap);
