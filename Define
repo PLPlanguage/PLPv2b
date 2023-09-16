@@ -26,7 +26,9 @@
     //operator -> PLP
     #define and             &&
     #define xor             ||
-
+    #define loopeach(type, pvar, col, colsiz) \
+	type* pvar; \
+	for (pvar = col; pvar < (col + colsiz); ++pvar){
   #endif
 
     #define no              !=
@@ -47,9 +49,6 @@
     #define cond            if(
     #define when            while(
     #define loop(e,i)       for(;e;i){
-    #define loopeach(a,b,...) for(int a=0;a<(sizeof(b)/sizeof(b[0]));a++){ \
-	   __VA_ARGS__; \
-	   }
     #define lambda(is,...) \
                    is \
                    __VA_ARGS__;
