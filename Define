@@ -26,6 +26,7 @@
     //operator -> PLP
     #define and             &&
     #define xor             ||
+    #define arraylen(arr) (sizeof(arr)/sizeof(arr[0]))
     #define loopeach(type, pvar, col, colsiz) \
 	type* pvar; \
 	for (pvar = col; pvar < (col + colsiz); ++pvar){
