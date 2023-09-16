@@ -28,7 +28,9 @@
     #define xor             ||
     #define not             !=
     #define was             ==
-
+    #define loopeach(type, pvar, col, colsiz) \
+	type* pvar; \
+	for (pvar = col; pvar < (col + colsiz); ++pvar){
   #endif
 
     #define _               in main(in argc,$ **argv){
