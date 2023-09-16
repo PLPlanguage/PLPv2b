@@ -23,6 +23,7 @@ space std;
     #define PRINTLN             cout << endl << 
     #define sent                cin >>
     #define nline		endl 
+    #define loopeach(a, b)	for(a : b){
 typedef string              text;
 typedef string              TEXT;
 typedef ofstream            writefs;
