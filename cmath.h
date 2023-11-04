@@ -9,7 +9,11 @@
 
 #include "Type"
 #include "Define"
+#ifndef __cplusplus
 #include <math.h>
+#else
+#include <cmath>
+#endif
     
     #define PI          acos(0.0)*2
     #define Euler	exp(1)
@@ -18,13 +22,13 @@
     #define deg(a) ((a)*180.0/PI)
     #define rad(a)    ((a)*PI/180.0)
     #define radius(a)   (a*a)*PI
-    
+#ifndef __cplusplus
     #define min(X, Y) (((X) < (Y)) ? (X) : (Y))
     #define max(a,b) \
     ({ __typeof__ (a) _a = (a); \
        __typeof__ (b) _b = (b); \
      _a > _b ? _a : _b; })
-     
+#endif
   #ifdef __cplusplus
 	extern "C"{
   #endif
