@@ -20,6 +20,7 @@
   #endif
     #define fprint          fprintf
   #ifndef __cplusplus
+    #include <complex.h>
     #define print           printf
     #define nline	        "\n"
 
