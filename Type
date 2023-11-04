@@ -39,5 +39,8 @@
 	define long double ldec8;
         define unsigned long ULNUM;
 	define unsigned long ulnum;
+  #ifndef __cplusplus
+	define double complex Inum;
+  #endif
   #endif
 
