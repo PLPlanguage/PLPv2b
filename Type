@@ -42,4 +42,5 @@
   #ifndef __cplusplus
 	define double complex Inum;
   #endif
+  #endif
 
