@@ -41,8 +41,5 @@
 	define unsigned long ulnum;
   #ifndef __cplusplus
 	define double complex Inum;
-  #elif __cplusplus
-	define complex<double> Inum;
-  #endif
   #endif
 
