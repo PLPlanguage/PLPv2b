@@ -29,6 +29,7 @@ typedef string              text;
 typedef string              TEXT;
 typedef ofstream            writefs;
 typedef ifstream            opens;
+typedef complex<double> Inum;
   #endif
 #define PLP(a) _ a Done
 #include <stdlib.h>
