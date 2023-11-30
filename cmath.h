@@ -23,6 +23,12 @@
     #define rad(a)    ((a)*PI/180.0)
     #define radius(a)   (a*a)*PI
 #ifndef __cplusplus
+    #define eulers(theta) (creal(cos(theta)) + cimag(sin(theta)))
+#endif
+#ifdef __cplusplus
+    #define eulers(theta) (real(cos(theta)) + imag(sin(theta)))
+#endif
+#ifndef __cplusplus
     #define min(X, Y) (((X) < (Y)) ? (X) : (Y))
     #define max(a,b) \
     ({ __typeof__ (a) _a = (a); \
