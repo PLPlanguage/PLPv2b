@@ -1,5 +1,5 @@
 # PLPv2b (PLP version 2 beta)
-<img src="https://plplanguage.ir/resource/PLP-language.png"/>
+<img src="PLP logo.png"/>
 PLP Project Programming Language
 
 Programming Language for projects and computer science and research on computer and programming.<br/>
