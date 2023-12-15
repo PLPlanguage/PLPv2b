@@ -10,7 +10,7 @@
   #ifndef TYPE
     #define TYPE
         define int in;
-	    define int IN;
+	define int IN;
         define long LNUM;
         define long double DEC12;
         define long lnum;
@@ -23,20 +23,24 @@
         define float dec4;
         define char $;
         define unsigned Un;
-	    define unsigned short int USIN;
-	    define unsigned short int usin;
+	define unsigned short int USIN;
+	define unsigned short int usin;
         define unsigned int UIN;
-	    define unsigned int uin;
-	    define unsigned long int ULIN;
-	    define unsigned long int ulin;
+	define unsigned int uin;
+	define unsigned long int ULIN;
+	define unsigned long int ulin;
         define unsigned char U$;
         define void out;
         define long int LIN;
         define long int lin;
-	    define long long int LLIN;
-	    define long long int llin;
-	    define long double LDEC8;
-	    define long double ldec8;
+	define long long int LLIN;
+	define long long int llin;
+	define long double LDEC8;
+	define long double ldec8;
         define unsigned long ULNUM;
+	define unsigned long ulnum;
+  #ifndef __cplusplus
+	define double complex Inum;
+  #endif
   #endif
 
