@@ -20,12 +20,13 @@
   #endif
     #define fprint          fprintf
   #ifndef __cplusplus
+    #include <complex.h>
     #define print           printf
     #define nline	        "\n"
 
     //operator -> PLP
     #define and             &&
-    #define xor             ||
+    #define or             ||
     #define arraylen(arr) (sizeof(arr)/sizeof(arr[0]))
     #define loopeach(type, pvar, col, colsiz) \
 	type* pvar; \
