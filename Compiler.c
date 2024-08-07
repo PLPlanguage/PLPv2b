@@ -7,6 +7,9 @@
 #include <import>
 #include <luasyntax.h>
 
+#define keywords bold magenta "keyword:" set
+#define functions  bold green "function:" set
+#define variables bold cyan "variable:" set
 // When user CTRL + C (signal 2) entered
 out cpress(in sig)
 {
@@ -136,63 +139,79 @@ Shell(i,"l:c:o:d:i:h")
         in d = 2;
         loop(d < argc, ++d)
         print(" \n");
-          cond indexof(argv[d], "print", 0) then
-            print(bold green "function:" set "\tPrints and displays strings and variables \n");
-            return 0;
-          ends
           cond indexof(argv[d], "_", 0) then
             print(bold white "Main response:" set "\tIt is a type of keyword that can be used to call commands\n");
             print("You must end your commands with the operator ( . ) after you write them inside\n");
             return 0;
           ends
-          cond indexof(argv[d], "function", 0) then
-            print(bold green "function:" set "\tThe function command is a type of function that contains a set of function " yellow "(variable)" set " arguments\n");
+          other cond indexof(argv[d], "lambda", 0) then
+            print(functions "\tthis is a anonymous function (" yellow "advanced" set ")\n");
             return 0;
           ends
-          other cond indexof(argv[d], "nline", 0) then
-            print(bold magenta "keyword:" set "\tGo to the next line, Of course this command works mostly with print \n");
+          other cond indexof(argv[d], "range", 0) then
+            print(functions "function:" set "\trange of numbers\n");
             return 0;
           ends
-          other cond indexof(argv[d], "cond", 0) then
-            print(bold magenta "keyword:" set " Like the if command is operating. It means " yellow "condition" set ", Of course should be (then) command after it, because the codes can be write after that\n");
+          other cond indexof(argv[d], "interrupt", 0) then
+            print(functions "\tinterruption of program and progress\n");
+            return 0;
+          ends
+          other cond indexof(argv[d], "print", 0) then
+            print(functions "\tPrints and displays strings and variables \n");
             return 0;
           ends
           other cond indexof(argv[d], "loop", 0) then
-            print(bold green "function:" set "\tIt works like the when loop, but you can also specify the variable jump\n");
-            return 0;
-          ends
-          other cond indexof(argv[d], "when", 0) then
-            print(bold magenta "keyword:" set "\tCodes will continue when a condition is met\n");
-            return 0;
-          ends
-          other cond indexof(argv[d], "other", 0) then
-            print(bold magenta "keyword:" set "\tThis command works like " yellow "else" set ", but its text is like this\n");
+            print(functions "\tIt works like the when loop, but you can also specify the variable jump\n");
             return 0;
           ends
           other cond indexof(argv[d], "typeof", 0) then
-            print(bold cyan "function:" set "\tCalculates the size of the variables data  that is stored.\n");
+            print(functions "\tCalculates the size of the variables data  that is stored.\n");
+            return 0;
+          ends
+          cond indexof(argv[d], "function", 0) then
+            print(functions "\tThe function command is a type of function that contains a set of function " yellow "(variable)" set " arguments\n");
+            return 0;
+          ends
+          other cond indexof(argv[d], "when", 0) then
+            print(keywords "\tCodes will continue when a condition is met\n");
+            return 0;
+          ends
+          other cond indexof(argv[d], "other", 0) then
+            print(keywords "\tThis command works like " yellow "else" set ", but its text is like this\n");
             return 0;
           ends
           other cond indexof(argv[d], "bp", 0) then
-            print(bold magenta "keyword:" set "\tIt specifies a breakpoint in the code and breaks the execution of the code\n");
+            print(keywords "\tIt specifies a breakpoint in the code and breaks the execution of the code\n");
             return 0;
           ends
           other cond indexof(argv[d], "str$", 0) or indexof(argv[d], "Str$", 0) then
-            print(bold magenta "keyword:" set "\tIt prints string variables like " yellow "num$" set " and " yellow "dec$" set " commands\n");
+            print(keywords "\tIt prints string variables like " yellow "num$" set " and " yellow "dec$" set " commands\n");
+            return 0;
+          ends
+          other cond indexof(argv[d], "nline", 0) then
+            print(keywords "\tGo to the next line, Of course this command works mostly with print \n");
+            return 0;
+          ends
+          other cond indexof(argv[d], "cond", 0) then
+            print(keywords " Like the if command is operating. It means " yellow "condition" set ", Of course should be (then) command after it, because the codes can be write after that\n");
+            return 0;
+          ends
+          other cond indexof(argv[d], "selector", 0) then
+            print(keywords "\tLike the switch command is operating.\n");
             return 0;
           ends
           other cond indexof(argv[d], "in", 0) or indexof(argv[d], "IN", 0) then
-            print(bold cyan "variable:" set "\tIt is a type of integer variable\n");
+            print(variables "\tIt is a type of integer variable\n");
             return 0;
           ends
           other cond indexof(argv[d], "$", 0) or indexof(argv[d], "text", 0) then
-            print(bold cyan "variable:" set "\tIt is a type of character or string variable\n");
+            print(variables "\tIt is a type of character or string variable\n");
             return 0;
           ends
           other{ print(" Not find keyword or function\n"); return 0;}
         ends
         print("Help in functions and keywords in PLP language \n");
-          print("please command PLP help [argument]\n");  
+        print("please command PLP help [argument]\n");  
       ends
     ends
                 print("Compiling.. [%s]\n",argv[c]);
