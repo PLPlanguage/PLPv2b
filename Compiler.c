@@ -87,6 +87,7 @@ Shell(i,"l:c:o:d:i:h")
             print(" Project Programming Language \n");
             print(" Help");
 	    print("\tPLP [function filename]\n");
+	    print("\tPLP help [command]  Commands you don't know what they are.\n");
             print("\t-c Execute a PLP file\n");
             print("\t-l Execute a interpreter file\n");
 	    print("\t-d Print a script with the argument\n"); 
