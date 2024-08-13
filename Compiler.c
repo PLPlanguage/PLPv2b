@@ -224,35 +224,35 @@ Shell(i,"l:c:o:d:i:h")
                 return 0;
 ends
  cond argc < 2 then
-	 $ buffer[256];	
+	 $ buffer[256];
+     text hi;
 	print("Compiler PLP|> Project Programming Language\n");
 	when 1 then
         print("PLP|>");
 		interrupt(cpress);
 		cond fgets(buffer,sizeof(buffer),stdin) == 0 then beep(); return 0; ends
         cond indexof(buffer,"compile\n",0) then
-            gets(buffer);
-            inout(buffer);
-            print("Compiling.. [%s]\n",buffer);
+            hi = get_text("File:");
+            inout(hi);
+            print("Compiling.. [%s]\n",hi);
             rename("/tmp/cplp","/tmp/cplp.c");
             cc();
             remove("/tmp/aout");
             remove("/tmp/cplp.c");
         ends
         other cond indexof(buffer,"compile c\n",0) then
-            gets(buffer);
+            hi = get_text("File:");
             print("Compiling.. [%s]\n",buffer);
             inout(buffer);
             rename("/tmp/cplp","/tmp/cplp.cpp");
-                cpp();
+            cpp();
             remove("/tmp/cplp.cpp");
             remove("/tmp/aout");
         ends
         other cond indexof(buffer,"interpreter\n",0) then
-            $ s[256];
             print("This is hybrid PLP & lua language,\n Please filename function: luaPLP [namefunctionfile]\n");
-            gets(s);
-            lua_dofile(s);
+            hi = get_text("");
+            lua_dofile(hi);
         ends
         other cond indexof(buffer,"exit\n",0) then
             beep();
