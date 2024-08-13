@@ -10,6 +10,11 @@
 #define keywords bold magenta "keyword:" set
 #define functions  bold green "function:" set
 #define variables bold cyan "variable:" set
+#define luaPLP bold yellow "luaPLP interpreter\n" set
+
+#define mathlibs yellow "math library->" set 
+#define libio yellow "IO library->" set
+#define shelloption_s bold black "shell library->" set 
 // When user CTRL + C (signal 2) entered
 out cpress(in sig)
 {
@@ -144,6 +149,66 @@ Shell(i,"l:c:o:d:i:h")
             print("You must end your commands with the operator ( . ) after you write them inside\n");
             return 0;
           ends
+	  cond indexof(argv[d], "executel", 0) then
+	    print(bold " in executel (fix $ * s)\n" set);
+	    print(luaPLP functions "\texecute of system commands\n");
+	    return 0;
+	  ends 
+	  cond indexof(argv[d], "printl", 0) then
+	    print(bold " out printl ($ *str)\n" set);
+	    print(luaPLP functions "\tprint with lua language\n");
+	    return 0;
+	  ends
+	  cond indexof(argv[d], "writel", 0) then
+	    print(bold " out writel ($ *str)\n" set);
+	    print(luaPLP functions "\twrite the command in lua language\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "sigma", 0) then
+	    print(mathlibs bold " dec4 sigma(dec4 i, dec4 n, dec4 x)\n" set);
+	    print(functions "\tsummation start and end and command\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "fermat", 0) then
+	    print(mathlibs bold " out writel ($ *str)\n" set);
+	    print(functions "\tfermat numbers in PLP language\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "matrix", 0) then
+	    print(mathlibs bold " in matrix(in row, in col, in *mat)\n" set);
+	    print(functions "\tmatrics or matrix mathematic in PLP language\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "ack", 0) then
+	    print(mathlibs bold " in ack(in m, in n)\n" set);
+	    print(functions "\tackermann function in PLP\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "mod", 0) then
+	    print(mathlibs bold " in mod (in d1, in d2)\n" set);
+	    print(functions "\tmode of mathematics\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "fib", 0) then
+	    print(mathlibs bold " in fib (in n)\n" set);
+	    print(functions "\tfibonacci numbers in mathematics\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "factorial", 0) then
+	    print(mathlibs bold " in factorial (in c)\n" set);
+	    print(functions "\tfactorial numbers in mathematics\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "collatz", 0) then
+	    print(mathlibs bold " in collatz (in n)\n" set);
+	    print(functions "\tcollatz conjecture in mathematics\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "catalan", 0) then
+	    print(mathlibs bold " ULIN catalan(UIN n)\n" set);
+	    print(functions "\tcatalan numbers in mathematics\n");
+	    return 0;
+	  ends
           other cond indexof(argv[d], "lambda", 0) then
             print(functions "\tthis is a anonymous function (" yellow "advanced" set ")\n");
             return 0;
@@ -200,6 +265,14 @@ Shell(i,"l:c:o:d:i:h")
             print(keywords "\tLike the switch command is operating.\n");
             return 0;
           ends
+	  other cond indexof(argv[d], "dec8", 0) or indexof(argv[d], "DEC8", 0) then
+	    print(variables "\tIt's a type of 8 decimal variable\n");
+	    return 0;
+	  ends
+	  other cond indexof(argv[d], "dec4", 0) or indexof(argv[d], "DEC4", 0) then
+	    print(variables "\tIt's a type of 4 decimal variable\n");
+	    return 0;
+	  ends
           other cond indexof(argv[d], "in", 0) or indexof(argv[d], "IN", 0) then
             print(variables "\tIt is a type of integer variable\n");
             return 0;
@@ -211,8 +284,9 @@ Shell(i,"l:c:o:d:i:h")
           other{ print(" Not find keyword or function\n"); return 0;}
         ends
         print("Help in functions and keywords in PLP language \n");
-        print("please command PLP help [argument]\n");  
+          print("please command PLP help [command]\n");  
       ends
+      return 0;
     ends
                 print("Compiling.. [%s]\n",argv[c]);
                 inout(argv[c]);
