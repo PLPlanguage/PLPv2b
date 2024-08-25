@@ -286,7 +286,6 @@ Shell(i,"l:c:o:d:i:h")
         print("Help in functions and keywords in PLP language \n");
           print("please command PLP help [command]\n");  
       ends
-      return 0;
     ends
                 print("Compiling.. [%s]\n",argv[c]);
                 inout(argv[c]);
