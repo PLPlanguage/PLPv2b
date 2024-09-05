@@ -148,8 +148,7 @@ in lua_execute (Byte *pc)
 {
  when 1)
  {
-  selector((OpCode)*pc++)
-  {
+  selector (OpCode)*pc++ then
    selection NOP: break;
    
    selection PUSHNIL: tag(top++) = T_NIL; break;
@@ -302,8 +301,7 @@ in lua_execute (Byte *pc)
      tag(top-1) = T_NIL;
     other
     {
-     selector (tag(l))
-     {
+     selector tag(l) then
       selection T_NIL:       tag(top-1) = T_NUMBER; break;
       selection T_NUMBER:    tag(top-1) = (nvalue(l) == nvalue(r)) ? T_NUMBER : T_NIL; break;
       selection T_ARRAY:     tag(top-1) = (avalue(l) == avalue(r)) ? T_NUMBER : T_NIL; break;
