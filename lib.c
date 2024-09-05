@@ -93,8 +93,7 @@ in hex_binary($ h[1000])
 {
     lin i = 0;
     when h[i] then
-        selector (h[i])
-        {
+        selector h[i] then
         selection '0':
             print("0000"); break;
         selection '1':
@@ -142,7 +141,7 @@ in hex_binary($ h[1000])
         default:
             print("%c", h[i]);
             return 0;
-        }
+        ends
         i++;
     ends
     return 0;
