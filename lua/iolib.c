@@ -279,8 +279,7 @@ static out io_read (out)
    $ s[256];
    sprintf (f, "%%%ds", m);
    fscanf (input, f, s);
-   selector(tolower(t))
-   {
+   selector tolower(t) then
     selection 'i':
     {
      long int l;
@@ -302,8 +301,7 @@ static out io_read (out)
   }
   other
   {
-   selector(tolower(t))
-   {
+   selector tolower(t) then
     selection 'i':
     {
      long int l;
@@ -377,8 +375,7 @@ static $ *buildformat ($ *e, lua_Object o)
  cond m != 0)   sprintf(strchr(f,0),"%d", m);
  cond n != 0)   sprintf(strchr(f,0),".%d", n);
  sprintf(strchr(f,0), "%c", t);
- selector (tolower(t))
- {
+ selector tolower(t) then
   selection 'i': t = 'i';
    sprintf (string, f, (long int)lua_getnumber(o));
   break;
