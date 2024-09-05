@@ -160,8 +160,7 @@ in lua_findenclosedconstant ($ *s)
  {
   cond s[i] == '\\')
   {
-   selector(s[++i])
-   {
+   selector s[++i] then
     selection 'n': c[j++] = '\n'; break;
     selection 't': c[j++] = '\t'; break;
     selection 'r': c[j++] = '\r'; break;
