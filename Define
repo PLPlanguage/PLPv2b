@@ -71,7 +71,7 @@
     #define typeof          sizeof
     #define indexof(str,str2,i)         strcmp(str,str2) == i
     #define getkey          getchar()
-    #define selector        switch
+    #define selector        switch(
     #define selection       case
 
     #define interrupt(integer)	    signal(SIGINT,integer)
