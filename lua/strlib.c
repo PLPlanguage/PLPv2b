@@ -143,7 +143,7 @@ static $ *bracket_end ($ *p)
 
 $ *item_end ($ *p)
 {
-  selector (*p++) {
+  selector *p++ then
     selection '\0': return p-1;
     selection ESC:
       cond *p == 0) lua_error("incorrect pattern");
@@ -161,7 +161,7 @@ $ *item_end ($ *p)
 static in matchclass (in c, in cl)
 {
   in res;
-  selector (tolower(cl)) {
+  selector tolower(cl) then
     selection 'a' : res = isalpha(c); break;
     selection 'c' : res = iscntrl(c); break;
     selection 'd' : res = isdigit(c); break;
@@ -178,7 +178,7 @@ static in matchclass (in c, in cl)
 in singlematch (in c, $ *p)
 {
   cond c == 0) return 0;
-  selector (*p) {
+  selector *p then
     selection '.': return 1;
     selection ESC: return matchclass(c, *(p+1));
     selection '[': {
@@ -447,8 +447,7 @@ static out str_format (out)
         form[i] = *strfrmt++;
       }
       form[i+1] = 0;  /* ends string */
-      selector (form[i])
-      {
+      selector form[i] then
         selection 'q':
           lua_addquoted(lua_check_string(arg++, "format"));
           buff[0] = '\0';  /* addchar already done */
