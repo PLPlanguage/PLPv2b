@@ -14,6 +14,7 @@
 
 #define mathlibs yellow "math library->" set 
 #define libio yellow "IO library->" set
+#define keys yellow "Key Define->" set
 #define shelloption_s bold black "shell library->" set 
 // When user CTRL + C (signal 2) entered
 out cpress(in sig)
@@ -31,8 +32,7 @@ _
  $ * a = NULL;
 // PLP Compiler Arguments
 Shell(i,"l:c:o:d:i:h")
- selector(i)
- {
+ selector i then
     selection 'l':
        a = getshell;
             iolib_open();
@@ -133,7 +133,7 @@ Shell(i,"l:c:o:d:i:h")
                   break;
     default:
             abort();
- }
+  ends
  in c =1;
  // default argument
  loop (c < argc, c++)
@@ -150,17 +150,17 @@ Shell(i,"l:c:o:d:i:h")
             return 0;
           ends
 	  cond indexof(argv[d], "executel", 0) then
-	    print(bold " in executel (fix $ * s)\n" set);
+	    print(libio bold " in executel (fix $ * s)\n" set);
 	    print(luaPLP functions "\texecute of system commands\n");
 	    return 0;
 	  ends 
 	  cond indexof(argv[d], "printl", 0) then
-	    print(bold " out printl ($ *str)\n" set);
+	    print(libio bold " out printl ($ *str)\n" set);
 	    print(luaPLP functions "\tprint with lua language\n");
 	    return 0;
 	  ends
 	  cond indexof(argv[d], "writel", 0) then
-	    print(bold " out writel ($ *str)\n" set);
+	    print(libio bold " out writel ($ *str)\n" set);
 	    print(luaPLP functions "\twrite the command in lua language\n");
 	    return 0;
 	  ends
@@ -211,9 +211,11 @@ Shell(i,"l:c:o:d:i:h")
 	  ends
           other cond indexof(argv[d], "lambda", 0) then
             print(functions "\tthis is a anonymous function (" yellow "advanced" set ")\n");
+            print(bold yellow "Note: in gcc compiler has work\n" set );
             return 0;
           ends
           other cond indexof(argv[d], "range", 0) then
+            print(keys bold white " range" set "(" bold green "string" set ", " bold yellow "start" set ", " bold yellow "end" set ", " bold blue "range_start" set " ... " bold blue "range_end" set ")" nline);
             print(functions "function:" set "\trange of numbers\n");
             return 0;
           ends
@@ -222,10 +224,12 @@ Shell(i,"l:c:o:d:i:h")
             return 0;
           ends
           other cond indexof(argv[d], "print", 0) then
+            print(keys bold white " print" set "(" bold yellow "varstr" set "," bold yellow " arg..." set ")" nline);
             print(functions "\tPrints and displays strings and variables \n");
             return 0;
           ends
           other cond indexof(argv[d], "loop", 0) then
+            print(keys bold white " loop" set "(" bold yellow "prevar" set ", " bold cyan "step" set ")" nline);
             print(functions "\tIt works like the when loop, but you can also specify the variable jump\n");
             return 0;
           ends
@@ -234,10 +238,16 @@ Shell(i,"l:c:o:d:i:h")
             return 0;
           ends
           cond indexof(argv[d], "function", 0) then
+            print(keys bold white " function" set "(" set bold magenta "type" set bold yellow  " namevar" set "," bold yellow "arg..." set ") " nline);
             print(functions "\tThe function command is a type of function that contains a set of function " yellow "(variable)" set " arguments\n");
             return 0;
           ends
+          other cond indexof(argv[d], "eulers", 0) then
+            print(functions "\tThe Euler analysis in mathematics");
+            return 0;
+          ends
           other cond indexof(argv[d], "when", 0) then
+            print(keys bold white " when" set bold yellow " variable " set bold white "then\n" set);
             print(keywords "\tCodes will continue when a condition is met\n");
             return 0;
           ends
@@ -258,11 +268,18 @@ Shell(i,"l:c:o:d:i:h")
             return 0;
           ends
           other cond indexof(argv[d], "cond", 0) then
+            print(keys bold white " cond" set bold yellow " variable " set bold white "then\n" set);
             print(keywords " Like the if command is operating. It means " yellow "condition" set ", Of course should be (then) command after it, because the codes can be write after that\n");
             return 0;
           ends
           other cond indexof(argv[d], "selector", 0) then
+            print(keys bold white " selector" set bold yellow " variable " set bold white "then\n" set);
             print(keywords "\tLike the switch command is operating.\n");
+            return 0;
+          ends
+          other cond indexof(argv[d], "selection", 0) then
+            print(keys bold white " selection " set bold cyan "str|int|dec|" set ":\n");
+            print(keywords "\tLike the case command is operating.\n");
             return 0;
           ends
 	  other cond indexof(argv[d], "dec8", 0) or indexof(argv[d], "DEC8", 0) then
