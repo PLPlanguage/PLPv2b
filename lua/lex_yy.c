@@ -66,7 +66,7 @@ $ *lua_lasttext (out)
 yylex(){
 in nstr; extern in yyprevious;
 when (nstr = yylook()) >= 0)
-yyfussy: selector(nstr){
+yyfussy: selector nstr then
 selection 0:
 cond yywrap()) return(0); break;
 selection 1:
