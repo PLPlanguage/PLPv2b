@@ -102,10 +102,10 @@
     #define clear() printf("\033[H\033[J")
 
     //Auto Complete
-    #undef auto
+  #ifndef __cplusplus
     #define AUTO(var, value) __typeof__(value) var = value;
     #define auto AUTO(
-
+  #endif
     //print;
   #if defined(print)
     #define Decs(x)  "%." x "f",
