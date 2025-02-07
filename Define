@@ -101,6 +101,11 @@
     #define cursor(x,y) printf("\033[%d;%dH",(y),(x))
     #define clear() printf("\033[H\033[J")
 
+    //Auto Complete
+    #undef auto
+    #define AUTO(var, value) __typeof__(value) var = value;
+    #define auto AUTO(
+
     //print;
   #if defined(print)
     #define Decs(x)  "%." x "f",
